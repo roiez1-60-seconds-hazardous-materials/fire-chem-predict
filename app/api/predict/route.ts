@@ -79,7 +79,7 @@ async function searchPubChem(query: string) {
       const prop = propsData?.PropertyTable?.Properties?.[0];
       console.log("Props data:", JSON.stringify(prop).substring(0, 200));
       if (prop) {
-        result.smiles = prop.CanonicalSMILES || null;
+        result.smiles = prop.CanonicalSMILES || prop.ConnectivitySMILES || prop.IsomericSMILES || null;
         result.name = prop.IUPACName || null;
         result.formula = prop.MolecularFormula || null;
       }
