@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${RXN_API_KEY}`,  // ✅ תוקן: הוספת Bearer
+          "Authorization": RXN_API_KEY,  // ✅ ללא Bearer!
         },
         body: JSON.stringify({ name: `FireChem_${Date.now()}` }),
       });
@@ -70,9 +70,9 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${RXN_API_KEY}`,  // ✅ תוקן: הוספת Bearer
+          "Authorization": RXN_API_KEY,  // ✅ ללא Bearer!
         },
-        body: JSON.stringify({ reaction_smiles: reactionSmiles }),
+        body: JSON.stringify({ reaction_smiles: reactionSmiles }),  // ✅ reaction_smiles
       }
     );
 
@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
       const resultRes = await fetch(
         `${RXN_BASE_URL}/predictions/${projectId}/${predictionId}`,
         {
-          headers: { "Authorization": `Bearer ${RXN_API_KEY}` },  // ✅ תוקן: הוספת Bearer
+          headers: { "Authorization": RXN_API_KEY },  // ✅ ללא Bearer!
         }
       );
 
