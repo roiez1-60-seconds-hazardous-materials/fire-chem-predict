@@ -1,109 +1,172 @@
 /**
  * API Route: /api/predict
- * חיזוי תגובה כימית דרך ReactionT5 ב-Hugging Face Space
- * גרסה 6 - תיקון Gradio API endpoint
+ * חיזוי תגובה כימית דרך ReactionT5 (Hugging Face Space)
+ * + טבלת תאימות כימית + זיהוי תוצר דרך PubChem
+ * v5 - Next.js App Router
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import chemicals from "@/data/chemicals.json";
+import compatibility from "@/data/compatibility.json";
 
-const HF_SPACE_URL = "https://roiez-fire-chem-predict.hf.space/gradio_api";
+const HF_SPACE_URL =
+  "https://roiez-fire-chem-predict.hf.space/gradio_api/call/predict";
+
+/* ───────── helpers ───────── */
+
+function findChemical(smiles: string) {
+  return chemicals.find((c) => c.smiles === smiles);
+}
+
+function getCompatibility(cat1: string, cat2: string) {
+  const rules = (compatibility as any).rules as any[];
+  return rules.find(
+    (r) =>
+      (r.group1 === cat1 && r.group2 === cat2) ||
+      (r.group1 === cat2 && r.group2 === cat1)
+  );
+}
+
+/* ───────── main handler ───────── */
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { smiles1, smiles2 } = body;
+    const { smiles1, smiles2 } = await req.json();
 
     if (!smiles1 || !smiles2) {
-      return NextResponse.json({
-        success: false,
-        error: "חסרים נתוני SMILES של שני החומרים",
-      });
+      return NextResponse.json(
+        { error: "חסרים נתוני SMILES של שני החומרים" },
+        { status: 400 }
+      );
     }
 
-    console.log("Calling ReactionT5 with:", smiles1, "+", smiles2);
+    /* ── 1. Find chemicals in our DB ── */
+    const chem1 = findChemical(smiles1);
+    const chem2 = findChemical(smiles2);
+    const cat1 = chem1?.category_en || "Unknown";
+    const cat2 = chem2?.category_en || "Unknown";
 
-    // שלב 1: שליחת הבקשה ל-Gradio API
-    const callRes = await fetch(`${HF_SPACE_URL}/call/predict`, {
+    /* ── 2. Get compatibility rule ── */
+    const rule = getCompatibility(cat1, cat2);
+
+    /* ── 3. Call HF Space for reaction prediction ── */
+    // Step A: Submit
+    const submitRes = await fetch(HF_SPACE_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: [smiles1, smiles2],
-      }),
+      body: JSON.stringify({ data: [smiles1, smiles2] }),
     });
 
-    if (!callRes.ok) {
-      console.error("HF call error:", callRes.status);
-      if (callRes.status === 503) {
-        return NextResponse.json({
-          success: false,
-          error: "המודל מתעורר — נסה שוב בעוד 30 שניות",
-        });
-      }
-      return NextResponse.json({
-        success: false,
-        error: `שגיאה מהשרת: ${callRes.status}`,
-      });
+    if (!submitRes.ok) {
+      const errText = await submitRes.text().catch(() => "");
+      return NextResponse.json(
+        {
+          error: `שגיאה בחיבור למודל (${submitRes.status})`,
+          compatibility: rule || null,
+        },
+        { status: 200 }
+      );
     }
 
-    const callData = await callRes.json();
-    const eventId = callData?.event_id;
+    const submitData = await submitRes.json();
+    const eventId = submitData?.event_id;
 
     if (!eventId) {
-      return NextResponse.json({
-        success: false,
-        error: "לא התקבל מזהה בקשה מהמודל",
-      });
+      return NextResponse.json(
+        {
+          error: "לא התקבל מזהה מהמודל",
+          compatibility: rule || null,
+        },
+        { status: 200 }
+      );
     }
 
-    // שלב 2: קבלת התוצאה (SSE stream)
-    const resultRes = await fetch(`${HF_SPACE_URL}/call/predict/${eventId}`);
-
-    if (!resultRes.ok) {
-      return NextResponse.json({
-        success: false,
-        error: `שגיאה בקבלת תוצאה: ${resultRes.status}`,
-      });
-    }
+    // Step B: Poll for result
+    const resultRes = await fetch(`${HF_SPACE_URL}/${eventId}`, {
+      method: "GET",
+      headers: { Accept: "text/event-stream" },
+    });
 
     const resultText = await resultRes.text();
 
-    // חיפוש שורת data: בתוצאה
-    const dataLine = resultText
-      .split("\n")
-      .find((line) => line.startsWith("data:"));
-
-    if (!dataLine) {
-      return NextResponse.json({
-        success: false,
-        error: "לא התקבלה תשובה מהמודל",
-      });
+    // Parse SSE response - find the "data:" line with JSON
+    let predictionJson: any = null;
+    const lines = resultText.split("\n");
+    for (const line of lines) {
+      if (line.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(line.slice(6));
+          if (parsed && Array.isArray(parsed) && parsed.length > 0) {
+            predictionJson = JSON.parse(parsed[0]);
+          }
+        } catch {
+          // not JSON, skip
+        }
+      }
     }
 
-    const jsonStr = dataLine.replace("data: ", "");
-    const gradioResult = JSON.parse(jsonStr);
-
-    // Gradio מחזיר מערך — האיבר הראשון הוא התוצאה שלנו
-    const predictionStr = gradioResult?.[0];
-
-    if (!predictionStr) {
-      return NextResponse.json({
-        success: false,
-        error: "תשובה ריקה מהמודל",
-      });
+    if (!predictionJson || !predictionJson.success) {
+      return NextResponse.json(
+        {
+          error: "המודל לא הצליח לחזות תוצר",
+          compatibility: rule || null,
+        },
+        { status: 200 }
+      );
     }
 
-    // Parse the JSON string
-    const prediction =
-      typeof predictionStr === "string"
-        ? JSON.parse(predictionStr)
-        : predictionStr;
-
-    return NextResponse.json(prediction);
-  } catch (e: any) {
-    console.error("API Error:", e.message);
+    /* ── 4. Build response ── */
     return NextResponse.json({
-      success: false,
-      error: `שגיאה: ${e.message}`,
+      // Prediction result
+      product: predictionJson.product,
+      confidence: predictionJson.confidence,
+      reactionSmiles: predictionJson.reactionSmiles,
+      allPredictions: predictionJson.allPredictions || [],
+
+      // Product identification from PubChem
+      productInfo: predictionJson.productInfo || null,
+
+      // Compatibility data
+      compatibility: rule
+        ? {
+            level: rule.level,
+            icon: rule.icon,
+            hazards_he: rule.hazards_he,
+            hazards_en: rule.hazards_en,
+            description_he: rule.description_he,
+            gases: rule.gases,
+          }
+        : null,
+
+      // Reactant info
+      reactants: {
+        chem1: chem1
+          ? {
+              name_he: chem1.name_he,
+              name_en: chem1.name_en,
+              formula: chem1.formula,
+              category_he: chem1.category_he,
+              category_en: chem1.category_en,
+              hazards: chem1.hazards,
+            }
+          : null,
+        chem2: chem2
+          ? {
+              name_he: chem2.name_he,
+              name_en: chem2.name_en,
+              formula: chem2.formula,
+              category_he: chem2.category_he,
+              category_en: chem2.category_en,
+              hazards: chem2.hazards,
+            }
+          : null,
+      },
     });
+  } catch (e: any) {
+    console.error("Predict API error:", e);
+    return NextResponse.json(
+      { error: `שגיאה: ${e.message}` },
+      { status: 500 }
+    );
   }
 }
