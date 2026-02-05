@@ -1,16 +1,12 @@
 /**
  * API Route: /api/predict
  * חיזוי תגובה כימית דרך ReactionT5 ב-Hugging Face Space
- * גרסה 5 - App Router + ReactionT5 (חינמי, ללא API Key)
+ * גרסה 6 - תיקון Gradio API endpoint
  */
 
 import { NextRequest, NextResponse } from "next/server";
 
-// === שנה את ה-URL הזה לכתובת ה-Space שלך ===
-const HF_SPACE_URL =
-  "https://roiez-fire-chem-predict.hf.space/api/predict";
-// אחרי שתיצור את ה-Space, החלף YOUR-USERNAME בשם המשתמש שלך ב-HF
-// לדוגמה: https://roiez1-fire-chem-predict.hf.space/api/predict
+const HF_SPACE_URL = "https://roiez-fire-chem-predict.hf.space";
 
 export async function POST(req: NextRequest) {
   try {
@@ -26,8 +22,8 @@ export async function POST(req: NextRequest) {
 
     console.log("Calling ReactionT5 with:", smiles1, "+", smiles2);
 
-    // קריאה ל-Hugging Face Space API (Gradio)
-    const response = await fetch(HF_SPACE_URL, {
+    // שלב 1: שליחת הבקשה ל-Gradio API
+    const callRes = await fetch(`${HF_SPACE_URL}/call/predict`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -35,51 +31,73 @@ export async function POST(req: NextRequest) {
       }),
     });
 
-    if (!response.ok) {
-      const errText = await response.text().catch(() => "");
-      console.error("HF Space error:", response.status, errText);
-
-      // אם ה-Space ישן (cold start), ננסה להעיר אותו
-      if (response.status === 503) {
+    if (!callRes.ok) {
+      console.error("HF call error:", callRes.status);
+      if (callRes.status === 503) {
         return NextResponse.json({
           success: false,
-          error:
-            "המודל מתחיל לעבוד (cold start) — נסה שוב בעוד 30 שניות",
+          error: "המודל מתעורר — נסה שוב בעוד 30 שניות",
         });
       }
-
       return NextResponse.json({
         success: false,
-        error: `שגיאה מהשרת: ${response.status}`,
+        error: `שגיאה מהשרת: ${callRes.status}`,
       });
     }
 
-    const result = await response.json();
+    const callData = await callRes.json();
+    const eventId = callData?.event_id;
 
-    // Gradio מחזיר { data: [result_string] }
-    const predictionJson = result?.data?.[0];
-    if (!predictionJson) {
+    if (!eventId) {
+      return NextResponse.json({
+        success: false,
+        error: "לא התקבל מזהה בקשה מהמודל",
+      });
+    }
+
+    // שלב 2: קבלת התוצאה (SSE stream)
+    const resultRes = await fetch(`${HF_SPACE_URL}/call/predict/${eventId}`);
+
+    if (!resultRes.ok) {
+      return NextResponse.json({
+        success: false,
+        error: `שגיאה בקבלת תוצאה: ${resultRes.status}`,
+      });
+    }
+
+    const resultText = await resultRes.text();
+
+    // חיפוש שורת data: בתוצאה
+    const dataLine = resultText
+      .split("\n")
+      .find((line) => line.startsWith("data:"));
+
+    if (!dataLine) {
       return NextResponse.json({
         success: false,
         error: "לא התקבלה תשובה מהמודל",
       });
     }
 
-    // Parse the JSON string from the model
-    let prediction;
-    try {
-      prediction =
-        typeof predictionJson === "string"
-          ? JSON.parse(predictionJson)
-          : predictionJson;
-    } catch {
+    const jsonStr = dataLine.replace("data: ", "");
+    const gradioResult = JSON.parse(jsonStr);
+
+    // Gradio מחזיר מערך — האיבר הראשון הוא התוצאה שלנו
+    const predictionStr = gradioResult?.[0];
+
+    if (!predictionStr) {
       return NextResponse.json({
         success: false,
-        error: "תשובה לא תקינה מהמודל",
+        error: "תשובה ריקה מהמודל",
       });
     }
 
-    // העברת התוצאה לקליינט
+    // Parse the JSON string
+    const prediction =
+      typeof predictionStr === "string"
+        ? JSON.parse(predictionStr)
+        : predictionStr;
+
     return NextResponse.json(prediction);
   } catch (e: any) {
     console.error("API Error:", e.message);
