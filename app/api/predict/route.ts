@@ -1,83 +1,97 @@
-import { NextRequest, NextResponse } from "next/server";
+/**
+ * API Route: /api/predict
+ * חיזוי תגובה כימית דרך IBM RXN for Chemistry
+ * גרסה מתוקנת עם טיפול שגיאות משופר
+ */
 
-const RXN_API_KEY = process.env.RXN_API_KEY || "";
-const RXN_BASE_URL = "https://rxn.app.accelerate.science/rxn/api/api/v1";
-const RXN_PROJECT_ID = process.env.RXN_PROJECT_ID || "";
+export default async function handler(req, res) {
+  console.log("=== DEBUG START ===");
 
-export async function POST(req: NextRequest) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const { smiles1, smiles2, apiKey } = req.body;
+
+  console.log("API Key exists:", !!apiKey);
+  console.log("API Key length:", apiKey ? apiKey.length : 0);
+  console.log("SMILES1:", smiles1);
+  console.log("SMILES2:", smiles2);
+
+  // ולידציה
+  if (!smiles1 || !smiles2) {
+    return res.status(400).json({
+      success: false,
+      error: "חסרים נתוני SMILES של שני החומרים",
+    });
+  }
+
+  if (!apiKey) {
+    return res.status(400).json({
+      success: false,
+      error: "חסר מפתח API של IBM RXN",
+    });
+  }
+
+  const RXN_BASE_URL = "https://rxn.app.accelerate.science/rxn/api/api/v1";
+  const reactionSmiles = `${smiles1}.${smiles2}`;
+
   try {
-    // 1. Parse input
-    const { smiles1, smiles2 } = await req.json();
+    // --- שלב 1: יצירת פרויקט ---
+    console.log("Step 1: Creating project...");
+    const projectRes = await fetch(`${RXN_BASE_URL}/projects`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: apiKey,
+      },
+      body: JSON.stringify({ name: `ChemPredict_${Date.now()}` }),
+    });
 
-    // === DEBUG: הדפסת מידע בסיסי ===
-    console.log("=== DEBUG START ===");
-    console.log("API Key exists:", !!RXN_API_KEY);
-    console.log("API Key length:", RXN_API_KEY.length);
-    console.log("API Key starts with:", RXN_API_KEY.substring(0, 8) + "...");
-    console.log("Project ID:", RXN_PROJECT_ID || "(empty)");
-    console.log("SMILES1:", smiles1);
-    console.log("SMILES2:", smiles2);
-    console.log("===================");
+    console.log("Project response status:", projectRes.status);
 
-    // 2. Validate
-    if (!smiles1 || !smiles2) {
-      return NextResponse.json(
-        { error: "יש לבחור שני חומרים" },
-        { status: 400 }
-      );
-    }
-
-    if (!RXN_API_KEY) {
-      return NextResponse.json(
-        { error: "API Key לא הוגדר" },
-        { status: 500 }
-      );
-    }
-
-    // אם אין PROJECT_ID - ניצור פרויקט חדש
-    let projectId = RXN_PROJECT_ID;
-    
-    if (!projectId) {
-      // יצירת פרויקט חדש
-      const createProjectRes = await fetch(`${RXN_BASE_URL}/projects`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": RXN_API_KEY,
-        },
-        body: JSON.stringify({ name: `FireChem_${Date.now()}` }),
+    if (!projectRes.ok) {
+      const errText = await projectRes.text();
+      console.log("Project error response:", errText);
+      return res.status(200).json({
+        success: false,
+        error: `שגיאה ביצירת פרויקט IBM RXN (${projectRes.status}): ${errText.substring(0, 200)}`,
       });
-
-      // === DEBUG: תשובת יצירת פרויקט ===
-      const createText = await createProjectRes.text();
-      console.log("Create project status:", createProjectRes.status);
-      console.log("Create project response:", createText.substring(0, 500));
-
-      if (!createProjectRes.ok) {
-        return NextResponse.json(
-          { error: `שגיאה ביצירת פרויקט (${createProjectRes.status}): ${createText.substring(0, 100)}` },
-          { status: 502 }
-        );
-      }
-
-      const projectData = JSON.parse(createText);
-      projectId = projectData?.payload?.id || projectData?.payload?.project_id;
-      
-      if (!projectId) {
-        return NextResponse.json(
-          { error: "לא ניתן ליצור פרויקט" },
-          { status: 502 }
-        );
-      }
-      console.log("Created project:", projectId);
     }
 
-    // 3. Build reaction SMILES
-    const reactionSmiles = `${smiles1}.${smiles2}`;
-    console.log("Using Project ID:", projectId);
-    console.log("Reaction SMILES:", reactionSmiles);
+    let projectData;
+    try {
+      projectData = await projectRes.json();
+    } catch (parseErr) {
+      console.log("Failed to parse project response as JSON");
+      return res.status(200).json({
+        success: false,
+        error: "תשובת השרת לא בפורמט JSON - ייתכן שמפתח ה-API שגוי",
+      });
+    }
 
-    // 4. Call IBM RXN - submit prediction
+    console.log("Project data keys:", Object.keys(projectData));
+    const projectId =
+      projectData?.payload?.id ||
+      projectData?.payload?.project_id ||
+      projectData?.id;
+
+    if (!projectId) {
+      console.log("Full project response:", JSON.stringify(projectData).substring(0, 500));
+      return res.status(200).json({
+        success: false,
+        error: "לא התקבל מזהה פרויקט מ-IBM RXN. בדוק את מפתח ה-API",
+        debug: {
+          status: projectRes.status,
+          keys: Object.keys(projectData),
+        },
+      });
+    }
+
+    console.log("Project ID:", projectId);
+
+    // --- שלב 2: שליחת חיזוי ---
+    console.log("Step 2: Predicting reaction...", reactionSmiles);
     const predictUrl = `${RXN_BASE_URL}/predictions/${projectId}/predict-reaction`;
     console.log("Predict URL:", predictUrl);
 
@@ -85,81 +99,114 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": RXN_API_KEY,
+        Authorization: apiKey,
       },
       body: JSON.stringify({ reaction_smiles: reactionSmiles }),
     });
 
-    // === DEBUG: תשובת חיזוי ===
-    const predictText = await predictRes.text();
-    console.log("Predict status:", predictRes.status);
-    console.log("Predict response:", predictText.substring(0, 500));
+    console.log("Predict response status:", predictRes.status);
 
     if (!predictRes.ok) {
-      return NextResponse.json(
-        { error: `RXN Error: ${predictRes.status} - ${predictText.substring(0, 200)}` },
-        { status: 502 }
-      );
+      const errText = await predictRes.text();
+      console.log("Predict error:", errText);
+      return res.status(200).json({
+        success: false,
+        error: `שגיאה בשליחת חיזוי (${predictRes.status}): ${errText.substring(0, 200)}`,
+      });
     }
 
-    const predictData = JSON.parse(predictText);
-    const predictionId = predictData?.prediction_id || predictData?.payload?.id;
-    if (!predictionId) {
-      return NextResponse.json(
-        { error: `לא התקבל מזהה חיזוי. Response: ${predictText.substring(0, 200)}` },
-        { status: 502 }
-      );
+    let predictData;
+    try {
+      predictData = await predictRes.json();
+    } catch (parseErr) {
+      return res.status(200).json({
+        success: false,
+        error: "תשובת החיזוי לא בפורמט JSON",
+      });
     }
+
+    console.log("Predict data keys:", Object.keys(predictData));
+    const predictionId =
+      predictData?.payload?.id ||
+      predictData?.prediction_id ||
+      predictData?.id;
+
+    if (!predictionId) {
+      console.log("Full predict response:", JSON.stringify(predictData).substring(0, 500));
+      return res.status(200).json({
+        success: false,
+        error: "לא התקבל מזהה חיזוי. ייתכן ש-SMILES לא תקין",
+        debug: {
+          status: predictRes.status,
+          reaction: reactionSmiles,
+        },
+      });
+    }
+
     console.log("Prediction ID:", predictionId);
 
-    // 5. Wait & fetch results (poll every 2s, max 30s)
-    let results = null;
-    for (let i = 0; i < 15; i++) {
-      await new Promise((r) => setTimeout(r, 2000));
-      
-      const resultRes = await fetch(
-        `${RXN_BASE_URL}/predictions/${projectId}/${predictionId}`,
-        {
-          headers: { "Authorization": RXN_API_KEY },
-        }
-      );
+    // --- שלב 3: המתנה לתוצאות (עד 30 שניות) ---
+    console.log("Step 3: Waiting for results...");
+    let result = null;
 
-      // === DEBUG: תשובת polling ===
-      const resultText = await resultRes.text();
-      console.log(`Poll ${i + 1}: status=${resultRes.status}, body=${resultText.substring(0, 300)}`);
+    for (let attempt = 0; attempt < 10; attempt++) {
+      await new Promise((r) => setTimeout(r, 3000));
 
-      if (resultRes.ok) {
-        const data = JSON.parse(resultText);
-        const attempts = data?.response?.payload?.attempts || data?.payload?.attempts;
-        if (attempts?.length > 0) {
-          results = attempts[0];
-          console.log("SUCCESS! Got results:", JSON.stringify(results).substring(0, 200));
-          break;
-        }
+      console.log(`Polling attempt ${attempt + 1}/10...`);
+
+      const resultUrl = `${RXN_BASE_URL}/predictions/${projectId}/${predictionId}`;
+      const resultRes = await fetch(resultUrl, {
+        headers: { Authorization: apiKey },
+      });
+
+      console.log(`Poll ${attempt + 1} status:`, resultRes.status);
+
+      if (!resultRes.ok) {
+        console.log(`Poll ${attempt + 1} failed:`, resultRes.status);
+        continue;
+      }
+
+      let resultData;
+      try {
+        resultData = await resultRes.json();
+      } catch {
+        console.log(`Poll ${attempt + 1} - not JSON`);
+        continue;
+      }
+
+      const payload = resultData?.payload || resultData?.response?.payload || resultData;
+      const attempts = payload?.attempts || [];
+
+      console.log(`Poll ${attempt + 1} attempts:`, attempts.length);
+
+      if (attempts.length > 0) {
+        result = {
+          success: true,
+          productSmiles: attempts[0].smiles || "",
+          confidence: attempts[0].confidence || 0,
+          reactionSmiles,
+          allAttempts: attempts.slice(0, 5), // מגביל ל-5 תוצאות
+        };
+        break;
       }
     }
 
-    // 6. Handle response
-    if (!results) {
-      return NextResponse.json(
-        { error: "לא התקבלו תוצאות — נסה שוב" },
-        { status: 504 }
-      );
+    if (result) {
+      console.log("=== SUCCESS ===", result.productSmiles);
+      return res.status(200).json(result);
+    } else {
+      console.log("=== TIMEOUT - no results ===");
+      return res.status(200).json({
+        success: false,
+        error: "תם הזמן - השרת לא החזיר תוצאות. נסה שוב",
+      });
     }
-
-    return NextResponse.json({
-      status: "ok",
-      product: results.smiles || "לא זוהה תוצר",
-      confidence: results.confidence
-        ? Math.round(results.confidence * 100)
-        : null,
-      reactionSmiles,
-    });
   } catch (error) {
-    console.error("Server error:", error);
-    return NextResponse.json(
-      { error: `שגיאה בשרת: ${error instanceof Error ? error.message : String(error)}` },
-      { status: 500 }
-    );
+    console.error("=== CRITICAL ERROR ===", error.message);
+    console.error("Stack:", error.stack);
+    return res.status(200).json({
+      success: false,
+      error: `שגיאה כללית: ${error.message}`,
+    });
   }
 }
