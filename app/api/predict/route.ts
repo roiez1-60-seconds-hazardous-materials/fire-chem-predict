@@ -9,6 +9,16 @@ export async function POST(req: NextRequest) {
     // 1. Parse input
     const { smiles1, smiles2 } = await req.json();
 
+    // === DEBUG: הדפסת מידע בסיסי ===
+    console.log("=== DEBUG START ===");
+    console.log("API Key exists:", !!RXN_API_KEY);
+    console.log("API Key length:", RXN_API_KEY.length);
+    console.log("API Key starts with:", RXN_API_KEY.substring(0, 8) + "...");
+    console.log("Project ID:", RXN_PROJECT_ID || "(empty)");
+    console.log("SMILES1:", smiles1);
+    console.log("SMILES2:", smiles2);
+    console.log("===================");
+
     // 2. Validate
     if (!smiles1 || !smiles2) {
       return NextResponse.json(
@@ -33,21 +43,24 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": RXN_API_KEY,  // ✅ ללא Bearer!
+          "Authorization": RXN_API_KEY,
         },
         body: JSON.stringify({ name: `FireChem_${Date.now()}` }),
       });
 
+      // === DEBUG: תשובת יצירת פרויקט ===
+      const createText = await createProjectRes.text();
+      console.log("Create project status:", createProjectRes.status);
+      console.log("Create project response:", createText.substring(0, 500));
+
       if (!createProjectRes.ok) {
-        const errText = await createProjectRes.text();
-        console.error("Create project error:", createProjectRes.status, errText);
         return NextResponse.json(
-          { error: `שגיאה ביצירת פרויקט (${createProjectRes.status})` },
+          { error: `שגיאה ביצירת פרויקט (${createProjectRes.status}): ${createText.substring(0, 100)}` },
           { status: 502 }
         );
       }
 
-      const projectData = await createProjectRes.json();
+      const projectData = JSON.parse(createText);
       projectId = projectData?.payload?.id || projectData?.payload?.project_id;
       
       if (!projectId) {
@@ -59,39 +72,41 @@ export async function POST(req: NextRequest) {
       console.log("Created project:", projectId);
     }
 
-    // 3. Build reaction SMILES: "reactant1.reactant2"
+    // 3. Build reaction SMILES
     const reactionSmiles = `${smiles1}.${smiles2}`;
+    console.log("Using Project ID:", projectId);
     console.log("Reaction SMILES:", reactionSmiles);
 
     // 4. Call IBM RXN - submit prediction
-    const predictRes = await fetch(
-      `${RXN_BASE_URL}/predictions/${projectId}/predict-reaction`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": RXN_API_KEY,  // ✅ ללא Bearer!
-        },
-        body: JSON.stringify({ reaction_smiles: reactionSmiles }),  // ✅ reaction_smiles
-      }
-    );
+    const predictUrl = `${RXN_BASE_URL}/predictions/${projectId}/predict-reaction`;
+    console.log("Predict URL:", predictUrl);
+
+    const predictRes = await fetch(predictUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": RXN_API_KEY,
+      },
+      body: JSON.stringify({ reaction_smiles: reactionSmiles }),
+    });
+
+    // === DEBUG: תשובת חיזוי ===
+    const predictText = await predictRes.text();
+    console.log("Predict status:", predictRes.status);
+    console.log("Predict response:", predictText.substring(0, 500));
 
     if (!predictRes.ok) {
-      const errText = await predictRes.text();
-      console.error("RXN Error:", predictRes.status, errText);
       return NextResponse.json(
-        { error: `שגיאה בשליחה ל-IBM RXN (${predictRes.status})` },
+        { error: `RXN Error: ${predictRes.status} - ${predictText.substring(0, 200)}` },
         { status: 502 }
       );
     }
 
-    const predictData = await predictRes.json();
-    console.log("Predict response:", JSON.stringify(predictData).substring(0, 200));
-    
+    const predictData = JSON.parse(predictText);
     const predictionId = predictData?.prediction_id || predictData?.payload?.id;
     if (!predictionId) {
       return NextResponse.json(
-        { error: "לא התקבל מזהה חיזוי" },
+        { error: `לא התקבל מזהה חיזוי. Response: ${predictText.substring(0, 200)}` },
         { status: 502 }
       );
     }
@@ -105,15 +120,20 @@ export async function POST(req: NextRequest) {
       const resultRes = await fetch(
         `${RXN_BASE_URL}/predictions/${projectId}/${predictionId}`,
         {
-          headers: { "Authorization": RXN_API_KEY },  // ✅ ללא Bearer!
+          headers: { "Authorization": RXN_API_KEY },
         }
       );
 
+      // === DEBUG: תשובת polling ===
+      const resultText = await resultRes.text();
+      console.log(`Poll ${i + 1}: status=${resultRes.status}, body=${resultText.substring(0, 300)}`);
+
       if (resultRes.ok) {
-        const data = await resultRes.json();
+        const data = JSON.parse(resultText);
         const attempts = data?.response?.payload?.attempts || data?.payload?.attempts;
         if (attempts?.length > 0) {
           results = attempts[0];
+          console.log("SUCCESS! Got results:", JSON.stringify(results).substring(0, 200));
           break;
         }
       }
@@ -138,7 +158,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error("Server error:", error);
     return NextResponse.json(
-      { error: "שגיאה בשרת" },
+      { error: `שגיאה בשרת: ${error instanceof Error ? error.message : String(error)}` },
       { status: 500 }
     );
   }
