@@ -1,6 +1,6 @@
 /**
  * API Route: /api/predict
- * v6 - עם הסתרת AI לתגובות לא-אורגניות + חיפוש PubChem
+ * v7 - חיפוש PubChem ישירות מ-Vercel (לא דרך HF)
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -39,6 +39,86 @@ function isOrganicReaction(cat1: string, cat2: string): boolean {
   const c2NonOrg = NON_ORGANIC_CATEGORIES.includes(cat2);
   if (c1NonOrg && c2NonOrg) return false;
   return true;
+}
+
+/* ───────── PubChem direct search ───────── */
+
+async function searchPubChem(query: string) {
+  const result: any = {
+    name: null,
+    formula: null,
+    cas: null,
+    smiles: null,
+    pubchemUrl: null,
+    cid: null,
+  };
+
+  try {
+    // Step 1: Search by name or CAS → get CID
+    const encoded = encodeURIComponent(query.trim());
+    const cidRes = await fetch(
+      `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encoded}/cids/JSON`,
+      { headers: { "User-Agent": "FireChem/1.0" } }
+    );
+
+    if (!cidRes.ok) return null;
+
+    const cidData = await cidRes.json();
+    const cid = cidData?.IdentifierList?.CID?.[0];
+    if (!cid) return null;
+
+    result.cid = cid;
+    result.pubchemUrl = `https://pubchem.ncbi.nlm.nih.gov/compound/${cid}`;
+
+    // Step 2: Get properties (SMILES, formula, name)
+    const propsRes = await fetch(
+      `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/CanonicalSMILES,IUPACName,MolecularFormula/JSON`,
+      { headers: { "User-Agent": "FireChem/1.0" } }
+    );
+
+    if (propsRes.ok) {
+      const propsData = await propsRes.json();
+      const prop = propsData?.PropertyTable?.Properties?.[0];
+      if (prop) {
+        result.smiles = prop.CanonicalSMILES || null;
+        result.name = prop.IUPACName || null;
+        result.formula = prop.MolecularFormula || null;
+      }
+    }
+
+    // Step 3: Get synonyms (CAS + common name)
+    const synRes = await fetch(
+      `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/synonyms/JSON`,
+      { headers: { "User-Agent": "FireChem/1.0" } }
+    );
+
+    if (synRes.ok) {
+      const synData = await synRes.json();
+      const synonyms =
+        synData?.InformationList?.Information?.[0]?.Synonym || [];
+
+      // Find CAS number
+      for (const syn of synonyms.slice(0, 50)) {
+        if (/^\d{2,7}-\d{2}-\d$/.test(syn)) {
+          result.cas = syn;
+          break;
+        }
+      }
+
+      // Find common name
+      for (const syn of synonyms.slice(0, 10)) {
+        if (!/^\d{2,7}-\d{2}-\d$/.test(syn) && syn.length < 80) {
+          result.name = syn;
+          break;
+        }
+      }
+    }
+
+    return result;
+  } catch (e) {
+    console.error("PubChem search error:", e);
+    return null;
+  }
 }
 
 /* ───────── main handler ───────── */
@@ -178,7 +258,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-/* ───────── Search handler ───────── */
+/* ───────── Search handler (PubChem direct) ───────── */
 
 async function handleSearch(query: string) {
   if (!query || query.trim().length < 2) {
@@ -189,6 +269,7 @@ async function handleSearch(query: string) {
   }
 
   try {
+    // First check local DB
     const q = query.trim().toLowerCase();
     const localMatch = chemicals.find(
       (c) =>
@@ -213,68 +294,25 @@ async function handleSearch(query: string) {
       });
     }
 
-    // Not in local DB → search PubChem via HF Space
-    const submitRes = await fetch(`${HF_SPACE_URL}/search`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: [query.trim()] }),
-    });
+    // Not in local DB → search PubChem directly
+    const pubchemResult = await searchPubChem(query.trim());
 
-    if (!submitRes.ok) {
+    if (!pubchemResult || !pubchemResult.smiles) {
       return NextResponse.json({
         success: false,
-        error: "שגיאה בחיבור לשירות החיפוש",
-      });
-    }
-
-    const submitData = await submitRes.json();
-    const eventId = submitData?.event_id;
-
-    if (!eventId) {
-      return NextResponse.json({
-        success: false,
-        error: "שגיאה בשירות החיפוש",
-      });
-    }
-
-    const resultRes = await fetch(`${HF_SPACE_URL}/search/${eventId}`, {
-      method: "GET",
-      headers: { Accept: "text/event-stream" },
-    });
-
-    const resultText = await resultRes.text();
-    let searchResult: any = null;
-
-    const lines = resultText.split("\n");
-    for (const line of lines) {
-      if (line.startsWith("data: ")) {
-        try {
-          const parsed = JSON.parse(line.slice(6));
-          if (parsed && Array.isArray(parsed) && parsed.length > 0) {
-            searchResult = JSON.parse(parsed[0]);
-          }
-        } catch {
-          // skip
-        }
-      }
-    }
-
-    if (!searchResult?.success) {
-      return NextResponse.json({
-        success: false,
-        error: searchResult?.error || `לא נמצא חומר: ${query}`,
+        error: `לא נמצא חומר: ${query}`,
       });
     }
 
     return NextResponse.json({
       success: true,
       source: "pubchem",
-      name: searchResult.name,
-      formula: searchResult.formula,
-      cas: searchResult.cas,
-      smiles: searchResult.smiles,
-      pubchemUrl: searchResult.pubchemUrl,
-      cid: searchResult.cid,
+      name: pubchemResult.name,
+      formula: pubchemResult.formula,
+      cas: pubchemResult.cas,
+      smiles: pubchemResult.smiles,
+      pubchemUrl: pubchemResult.pubchemUrl,
+      cid: pubchemResult.cid,
       category_en: "Unknown",
       category_he: "לא ידוע",
       hazards: [],
