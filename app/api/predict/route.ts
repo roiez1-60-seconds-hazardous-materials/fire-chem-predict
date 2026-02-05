@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: RXN_API_KEY,
+          Authorization: `Bearer ${RXN_API_KEY}`,
         },
         body: JSON.stringify({ reactants: reactionSmiles }),
       }
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
       const resultRes = await fetch(
         `${RXN_BASE_URL}/predictions/${RXN_PROJECT_ID}/predict-reaction/${predictionId}`,
         {
-          headers: { Authorization: RXN_API_KEY },
+          headers: { Authorization: `Bearer ${RXN_API_KEY}` },
         }
       );
 
