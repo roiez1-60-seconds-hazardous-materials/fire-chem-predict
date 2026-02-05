@@ -24,19 +24,53 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // אם אין PROJECT_ID - ניצור פרויקט חדש
+    let projectId = RXN_PROJECT_ID;
+    
+    if (!projectId) {
+      // יצירת פרויקט חדש
+      const createProjectRes = await fetch(`${RXN_BASE_URL}/projects`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: RXN_API_KEY,  // ✅ תיקון 1: ללא Bearer
+        },
+        body: JSON.stringify({ name: `FireChem_${Date.now()}` }),
+      });
+
+      if (!createProjectRes.ok) {
+        const errText = await createProjectRes.text();
+        console.error("Create project error:", createProjectRes.status, errText);
+        return NextResponse.json(
+          { error: `שגיאה ביצירת פרויקט (${createProjectRes.status})` },
+          { status: 502 }
+        );
+      }
+
+      const projectData = await createProjectRes.json();
+      projectId = projectData?.payload?.id || projectData?.payload?.project_id;
+      
+      if (!projectId) {
+        return NextResponse.json(
+          { error: "לא ניתן ליצור פרויקט" },
+          { status: 502 }
+        );
+      }
+    }
+
     // 3. Build reaction SMILES: "reactant1.reactant2"
     const reactionSmiles = `${smiles1}.${smiles2}`;
 
     // 4. Call IBM RXN - submit prediction
     const predictRes = await fetch(
-      `${RXN_BASE_URL}/predictions/${RXN_PROJECT_ID}/predict-reaction`,
+      `${RXN_BASE_URL}/predictions/${projectId}/predict-reaction`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${RXN_API_KEY}`,
+          Authorization: RXN_API_KEY,  // ✅ תיקון 1: ללא Bearer
         },
-        body: JSON.stringify({ reactants: reactionSmiles }),
+        body: JSON.stringify({ reaction_smiles: reactionSmiles }),  // ✅ תיקון 2: reaction_smiles
       }
     );
 
@@ -50,9 +84,11 @@ export async function POST(req: NextRequest) {
     }
 
     const predictData = await predictRes.json();
-    const predictionId = predictData?.prediction_id;
-
+    // המפתח יכול להיות prediction_id או payload.id
+    const predictionId = predictData?.prediction_id || predictData?.payload?.id;
+    
     if (!predictionId) {
+      console.error("No prediction ID in response:", predictData);
       return NextResponse.json(
         { error: "לא התקבל מזהה חיזוי" },
         { status: 502 }
@@ -63,18 +99,21 @@ export async function POST(req: NextRequest) {
     let results = null;
     for (let i = 0; i < 15; i++) {
       await new Promise((r) => setTimeout(r, 2000));
-
+      
+      // ✅ תיקון 3: נתיב נכון לקבלת תוצאות
       const resultRes = await fetch(
-        `${RXN_BASE_URL}/predictions/${RXN_PROJECT_ID}/predict-reaction/${predictionId}`,
+        `${RXN_BASE_URL}/predictions/${projectId}/${predictionId}`,
         {
-          headers: { Authorization: `Bearer ${RXN_API_KEY}` },
+          headers: { Authorization: RXN_API_KEY },  // ✅ ללא Bearer
         }
       );
 
       if (resultRes.ok) {
         const data = await resultRes.json();
-        if (data?.response?.payload?.attempts?.length > 0) {
-          results = data.response.payload.attempts[0];
+        // בדיקת שני פורמטים אפשריים של תשובה
+        const attempts = data?.response?.payload?.attempts || data?.payload?.attempts;
+        if (attempts?.length > 0) {
+          results = attempts[0];
           break;
         }
       }
@@ -97,6 +136,7 @@ export async function POST(req: NextRequest) {
       reactionSmiles,
     });
   } catch (error) {
+    console.error("Server error:", error);
     return NextResponse.json(
       { error: "שגיאה בשרת" },
       { status: 500 }
