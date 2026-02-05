@@ -1,6 +1,6 @@
 /**
  * API Route: /api/predict
- * v7 - חיפוש PubChem ישירות מ-Vercel (לא דרך HF)
+ * v8 - with debug logging for PubChem search
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -9,8 +9,6 @@ import compatibility from "@/data/compatibility.json";
 
 const HF_SPACE_URL =
   "https://roiez-fire-chem-predict.hf.space/gradio_api/call";
-
-/* ───────── helpers ───────── */
 
 function findChemical(smiles: string) {
   return chemicals.find((c) => c.smiles === smiles);
@@ -26,12 +24,7 @@ function getCompatibility(cat1: string, cat2: string) {
 }
 
 const NON_ORGANIC_CATEGORIES = [
-  "Water Reactive",
-  "Acids",
-  "Bases",
-  "Oxidizers",
-  "Gases",
-  "Water",
+  "Water Reactive", "Acids", "Bases", "Oxidizers", "Gases", "Water",
 ];
 
 function isOrganicReaction(cat1: string, cat2: string): boolean {
@@ -44,41 +37,47 @@ function isOrganicReaction(cat1: string, cat2: string): boolean {
 /* ───────── PubChem direct search ───────── */
 
 async function searchPubChem(query: string) {
-  const result: any = {
-    name: null,
-    formula: null,
-    cas: null,
-    smiles: null,
-    pubchemUrl: null,
-    cid: null,
-  };
+  console.log("=== PubChem Search START ===");
+  console.log("Query:", query);
 
   try {
-    // Step 1: Search by name or CAS → get CID
+    // Step 1: Get CID
     const encoded = encodeURIComponent(query.trim());
-    const cidRes = await fetch(
-      `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encoded}/cids/JSON`,
-      { headers: { "User-Agent": "FireChem/1.0" } }
-    );
+    const cidUrl = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encoded}/cids/JSON`;
+    console.log("CID URL:", cidUrl);
 
-    if (!cidRes.ok) return null;
+    const cidRes = await fetch(cidUrl);
+    console.log("CID Response status:", cidRes.status);
+
+    if (!cidRes.ok) {
+      const errBody = await cidRes.text();
+      console.log("CID Error body:", errBody.substring(0, 200));
+      return null;
+    }
 
     const cidData = await cidRes.json();
     const cid = cidData?.IdentifierList?.CID?.[0];
+    console.log("CID found:", cid);
+
     if (!cid) return null;
 
-    result.cid = cid;
-    result.pubchemUrl = `https://pubchem.ncbi.nlm.nih.gov/compound/${cid}`;
+    const result: any = {
+      cid,
+      pubchemUrl: `https://pubchem.ncbi.nlm.nih.gov/compound/${cid}`,
+      name: null, formula: null, cas: null, smiles: null,
+    };
 
-    // Step 2: Get properties (SMILES, formula, name)
-    const propsRes = await fetch(
-      `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/CanonicalSMILES,IUPACName,MolecularFormula/JSON`,
-      { headers: { "User-Agent": "FireChem/1.0" } }
-    );
+    // Step 2: Get properties
+    const propsUrl = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/CanonicalSMILES,IUPACName,MolecularFormula/JSON`;
+    console.log("Props URL:", propsUrl);
+
+    const propsRes = await fetch(propsUrl);
+    console.log("Props Response status:", propsRes.status);
 
     if (propsRes.ok) {
       const propsData = await propsRes.json();
       const prop = propsData?.PropertyTable?.Properties?.[0];
+      console.log("Props data:", JSON.stringify(prop).substring(0, 200));
       if (prop) {
         result.smiles = prop.CanonicalSMILES || null;
         result.name = prop.IUPACName || null;
@@ -86,26 +85,22 @@ async function searchPubChem(query: string) {
       }
     }
 
-    // Step 3: Get synonyms (CAS + common name)
-    const synRes = await fetch(
-      `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/synonyms/JSON`,
-      { headers: { "User-Agent": "FireChem/1.0" } }
-    );
+    // Step 3: Get synonyms
+    const synUrl = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/synonyms/JSON`;
+    const synRes = await fetch(synUrl);
+    console.log("Synonyms Response status:", synRes.status);
 
     if (synRes.ok) {
       const synData = await synRes.json();
-      const synonyms =
-        synData?.InformationList?.Information?.[0]?.Synonym || [];
+      const synonyms = synData?.InformationList?.Information?.[0]?.Synonym || [];
+      console.log("First 3 synonyms:", synonyms.slice(0, 3));
 
-      // Find CAS number
       for (const syn of synonyms.slice(0, 50)) {
         if (/^\d{2,7}-\d{2}-\d$/.test(syn)) {
           result.cas = syn;
           break;
         }
       }
-
-      // Find common name
       for (const syn of synonyms.slice(0, 10)) {
         if (!/^\d{2,7}-\d{2}-\d$/.test(syn) && syn.length < 80) {
           result.name = syn;
@@ -114,9 +109,11 @@ async function searchPubChem(query: string) {
       }
     }
 
+    console.log("Final result:", JSON.stringify(result).substring(0, 300));
+    console.log("=== PubChem Search END ===");
     return result;
-  } catch (e) {
-    console.error("PubChem search error:", e);
+  } catch (e: any) {
+    console.error("PubChem search error:", e.message);
     return null;
   }
 }
@@ -126,13 +123,12 @@ async function searchPubChem(query: string) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    console.log("=== API Called ===", "action:", body.action || "predict");
 
-    // --- Search endpoint ---
     if (body.action === "search") {
       return handleSearch(body.query);
     }
 
-    // --- Predict endpoint ---
     const { smiles1, smiles2, chem1Custom, chem2Custom } = body;
 
     if (!smiles1 || !smiles2) {
@@ -142,22 +138,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    /* ── 1. Find chemicals in our DB ── */
     const chem1 = findChemical(smiles1);
     const chem2 = findChemical(smiles2);
     const cat1 = chem1?.category_en || chem1Custom?.category_en || "Unknown";
     const cat2 = chem2?.category_en || chem2Custom?.category_en || "Unknown";
-
-    /* ── 2. Get compatibility rule ── */
     const rule = getCompatibility(cat1, cat2);
-
-    /* ── 3. Check if organic reaction ── */
     const organic = isOrganicReaction(cat1, cat2);
 
     let predictionData: any = null;
 
     if (organic) {
-      /* ── 4. Call HF Space for reaction prediction ── */
       try {
         const submitRes = await fetch(`${HF_SPACE_URL}/predict`, {
           method: "POST",
@@ -172,10 +162,7 @@ export async function POST(req: NextRequest) {
           if (eventId) {
             const resultRes = await fetch(
               `${HF_SPACE_URL}/predict/${eventId}`,
-              {
-                method: "GET",
-                headers: { Accept: "text/event-stream" },
-              }
+              { method: "GET", headers: { Accept: "text/event-stream" } }
             );
 
             const resultText = await resultRes.text();
@@ -187,9 +174,7 @@ export async function POST(req: NextRequest) {
                   if (parsed && Array.isArray(parsed) && parsed.length > 0) {
                     predictionData = JSON.parse(parsed[0]);
                   }
-                } catch {
-                  // skip
-                }
+                } catch { }
               }
             }
           }
@@ -199,41 +184,21 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    /* ── 5. Build response ── */
     const response: any = {
       compatibility: rule
         ? {
-            level: rule.level,
-            icon: rule.icon,
-            hazards_he: rule.hazards_he,
-            hazards_en: rule.hazards_en,
-            description_he: rule.description_he,
-            gases: rule.gases,
+            level: rule.level, icon: rule.icon,
+            hazards_he: rule.hazards_he, hazards_en: rule.hazards_en,
+            description_he: rule.description_he, gases: rule.gases,
           }
         : null,
-
       isOrganic: organic,
-
       reactants: {
         chem1: chem1
-          ? {
-              name_he: chem1.name_he,
-              name_en: chem1.name_en,
-              formula: chem1.formula,
-              category_he: chem1.category_he,
-              category_en: chem1.category_en,
-              hazards: chem1.hazards,
-            }
+          ? { name_he: chem1.name_he, name_en: chem1.name_en, formula: chem1.formula, category_he: chem1.category_he, category_en: chem1.category_en, hazards: chem1.hazards }
           : chem1Custom || null,
         chem2: chem2
-          ? {
-              name_he: chem2.name_he,
-              name_en: chem2.name_en,
-              formula: chem2.formula,
-              category_he: chem2.category_he,
-              category_en: chem2.category_en,
-              hazards: chem2.hazards,
-            }
+          ? { name_he: chem2.name_he, name_en: chem2.name_en, formula: chem2.formula, category_he: chem2.category_he, category_en: chem2.category_en, hazards: chem2.hazards }
           : chem2Custom || null,
       },
     };
@@ -251,26 +216,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(response);
   } catch (e: any) {
     console.error("Predict API error:", e);
-    return NextResponse.json(
-      { error: `שגיאה: ${e.message}` },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: `שגיאה: ${e.message}` }, { status: 500 });
   }
 }
 
-/* ───────── Search handler (PubChem direct) ───────── */
+/* ───────── Search handler ───────── */
 
 async function handleSearch(query: string) {
+  console.log("=== handleSearch called ===", "query:", query);
+
   if (!query || query.trim().length < 2) {
-    return NextResponse.json(
-      { error: "יש להזין שם חומר או מספר CAS (לפחות 2 תווים)" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "יש להזין לפחות 2 תווים" }, { status: 400 });
   }
 
   try {
-    // First check local DB
     const q = query.trim().toLowerCase();
+    console.log("Searching local DB for:", q);
+
     const localMatch = chemicals.find(
       (c) =>
         c.name_en.toLowerCase().includes(q) ||
@@ -280,48 +242,39 @@ async function handleSearch(query: string) {
     );
 
     if (localMatch) {
+      console.log("Found in local DB:", localMatch.name_en);
       return NextResponse.json({
-        success: true,
-        source: "local",
-        name: localMatch.name_en,
-        name_he: localMatch.name_he,
-        formula: localMatch.formula,
-        cas: localMatch.cas,
-        smiles: localMatch.smiles,
-        category_en: localMatch.category_en,
-        category_he: localMatch.category_he,
-        hazards: localMatch.hazards,
+        success: true, source: "local",
+        name: localMatch.name_en, name_he: localMatch.name_he,
+        formula: localMatch.formula, cas: localMatch.cas,
+        smiles: localMatch.smiles, category_en: localMatch.category_en,
+        category_he: localMatch.category_he, hazards: localMatch.hazards,
       });
     }
 
-    // Not in local DB → search PubChem directly
+    console.log("Not in local DB, searching PubChem...");
     const pubchemResult = await searchPubChem(query.trim());
+    console.log("PubChem result:", pubchemResult ? "found" : "not found");
+    console.log("SMILES:", pubchemResult?.smiles);
 
     if (!pubchemResult || !pubchemResult.smiles) {
+      console.log("=== Search FAILED ===");
       return NextResponse.json({
         success: false,
         error: `לא נמצא חומר: ${query}`,
       });
     }
 
+    console.log("=== Search SUCCESS ===");
     return NextResponse.json({
-      success: true,
-      source: "pubchem",
-      name: pubchemResult.name,
-      formula: pubchemResult.formula,
-      cas: pubchemResult.cas,
-      smiles: pubchemResult.smiles,
-      pubchemUrl: pubchemResult.pubchemUrl,
-      cid: pubchemResult.cid,
-      category_en: "Unknown",
-      category_he: "לא ידוע",
-      hazards: [],
+      success: true, source: "pubchem",
+      name: pubchemResult.name, formula: pubchemResult.formula,
+      cas: pubchemResult.cas, smiles: pubchemResult.smiles,
+      pubchemUrl: pubchemResult.pubchemUrl, cid: pubchemResult.cid,
+      category_en: "Unknown", category_he: "לא ידוע", hazards: [],
     });
   } catch (e: any) {
-    console.error("Search error:", e);
-    return NextResponse.json({
-      success: false,
-      error: `שגיאה בחיפוש: ${e.message}`,
-    });
+    console.error("Search error:", e.message);
+    return NextResponse.json({ success: false, error: `שגיאה: ${e.message}` });
   }
 }
