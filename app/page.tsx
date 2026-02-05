@@ -44,10 +44,14 @@ export default function HomePage() {
 
       const data = await res.json();
 
-      if (!res.ok) {
+      if (!data.success) {
         setError(data.error || "שגיאה לא צפויה");
       } else {
-        setResult(data);
+        setResult({
+          product: data.product || "לא ידוע",
+          confidence: data.confidence ?? null,
+          reactionSmiles: data.reactionSmiles || `${chem1}.${chem2}`,
+        });
       }
     } catch {
       setError("שגיאת תקשורת — נסה שוב");
@@ -55,9 +59,6 @@ export default function HomePage() {
       setLoading(false);
     }
   };
-
-  // TODO: 7.2 - dropdown UI
-  // TODO: 7.3 - button + results display
 
   return (
     <div className="space-y-6">
@@ -67,7 +68,7 @@ export default function HomePage() {
           חיזוי תגובה כימית
         </h2>
         <p className="text-stone-400 text-sm">
-          בחר שני חומרים וקבל את התוצר הצפוי
+          בחר שני חומרים וקבל את התוצר הצפוי — מופעל ע&quot;י ReactionT5
         </p>
       </div>
 
@@ -126,22 +127,24 @@ export default function HomePage() {
         {/* Selected info cards */}
         {(chem1 || chem2) && (
           <div className="flex gap-3 flex-wrap mt-2">
-            {chem1 && (() => {
-              const c = getChemBySmiles(chem1);
-              return c ? (
-                <span className="px-3 py-1 rounded-full bg-fire-orange/20 text-fire-yellow text-sm">
-                  🧪 {c.name_he} ({c.formula})
-                </span>
-              ) : null;
-            })()}
-            {chem2 && (() => {
-              const c = getChemBySmiles(chem2);
-              return c ? (
-                <span className="px-3 py-1 rounded-full bg-fire-orange/20 text-fire-yellow text-sm">
-                  🧪 {c.name_he} ({c.formula})
-                </span>
-              ) : null;
-            })()}
+            {chem1 &&
+              (() => {
+                const c = getChemBySmiles(chem1);
+                return c ? (
+                  <span className="px-3 py-1 rounded-full bg-fire-orange/20 text-fire-yellow text-sm">
+                    🧪 {c.name_he} ({c.formula})
+                  </span>
+                ) : null;
+              })()}
+            {chem2 &&
+              (() => {
+                const c = getChemBySmiles(chem2);
+                return c ? (
+                  <span className="px-3 py-1 rounded-full bg-fire-orange/20 text-fire-yellow text-sm">
+                    🧪 {c.name_he} ({c.formula})
+                  </span>
+                ) : null;
+              })()}
           </div>
         )}
       </div>
@@ -159,7 +162,7 @@ export default function HomePage() {
         {loading ? (
           <span className="flex items-center justify-center gap-2">
             <span className="animate-spin">⏳</span>
-            מחשב תגובה...
+            מחשב תגובה... (עלול לקחת עד 30 שניות)
           </span>
         ) : (
           "🔥 חזה תגובה"
@@ -217,7 +220,8 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-stone-500 text-center">
-            ⚠️ תוצאה זו מבוססת על מודל AI — יש לאמת מול גורם מקצועי
+            ⚠️ תוצאה זו מבוססת על מודל ReactionT5 AI — יש לאמת מול גורם
+            מקצועי
           </p>
         </div>
       )}
