@@ -6,7 +6,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 
-const HF_SPACE_URL = "https://roiez-fire-chem-predict.hf.space";
+const HF_SPACE_URL = "https://roiez-fire-chem-predict.hf.space/gradio_api";
 
 export async function POST(req: NextRequest) {
   try {
