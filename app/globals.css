@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --fire-red: #DC2626;
+  --fire-orange: #EA580C;
+  --fire-yellow: #F59E0B;
+  --fire-dark: #1C1917;
+}
+
+body {
+  direction: rtl;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1C1917 0%, #292524 50%, #1C1917 100%);
+  min-height: 100vh;
+  color: #f5f5f4;
+}
+
+/* Fire glow effect for buttons */
+.fire-glow {
+  box-shadow: 0 0 15px rgba(234, 88, 12, 0.4),
+              0 0 30px rgba(220, 38, 38, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.fire-glow:hover {
+  box-shadow: 0 0 20px rgba(234, 88, 12, 0.6),
+              0 0 40px rgba(220, 38, 38, 0.4);
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(41, 37, 36, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 16px;
+}
