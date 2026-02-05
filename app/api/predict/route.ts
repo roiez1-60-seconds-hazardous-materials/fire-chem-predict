@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const RXN_API_KEY = process.env.RXN_API_KEY || "";
-const RXN_BASE_URL = "https://rxn.res.ibm.com/rxn/api/api/v1";
+const RXN_BASE_URL = "https://rxn.app.accelerate.science/rxn/api/api/v1";
 const RXN_PROJECT_ID = process.env.RXN_PROJECT_ID || "";
 
 export async function POST(req: NextRequest) {
@@ -41,8 +41,10 @@ export async function POST(req: NextRequest) {
     );
 
     if (!predictRes.ok) {
+      const errText = await predictRes.text();
+      console.error("RXN Error:", predictRes.status, errText);
       return NextResponse.json(
-        { error: "שגיאה בשליחה ל-IBM RXN" },
+        { error: `שגיאה בשליחה ל-IBM RXN (${predictRes.status})` },
         { status: 502 }
       );
     }
