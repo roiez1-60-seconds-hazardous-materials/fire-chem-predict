@@ -1113,5 +1113,21 @@
     ],
     "category_he": "ממסים",
     "category_en": "Solvents"
+  },
+  {
+    "name_he": "מים",
+    "name_en": "Water",
+    "formula": "H₂O",
+    "smiles": "O",
+    "cas": "7732-18-5",
+    "hazards": [],
+    "category_he": "מים",
+    "category_en": "Water"
   }
 ]
+
+
+
+
+
+
