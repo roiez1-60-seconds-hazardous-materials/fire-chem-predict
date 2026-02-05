@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: RXN_API_KEY,  // ✅ תיקון 1: ללא Bearer
+          "Authorization": RXN_API_KEY,  // ✅ ללא Bearer!
         },
         body: JSON.stringify({ name: `FireChem_${Date.now()}` }),
       });
@@ -56,10 +56,12 @@ export async function POST(req: NextRequest) {
           { status: 502 }
         );
       }
+      console.log("Created project:", projectId);
     }
 
     // 3. Build reaction SMILES: "reactant1.reactant2"
     const reactionSmiles = `${smiles1}.${smiles2}`;
+    console.log("Reaction SMILES:", reactionSmiles);
 
     // 4. Call IBM RXN - submit prediction
     const predictRes = await fetch(
@@ -68,9 +70,9 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: RXN_API_KEY,  // ✅ תיקון 1: ללא Bearer
+          "Authorization": RXN_API_KEY,  // ✅ ללא Bearer!
         },
-        body: JSON.stringify({ reaction_smiles: reactionSmiles }),  // ✅ תיקון 2: reaction_smiles
+        body: JSON.stringify({ reaction_smiles: reactionSmiles }),  // ✅ reaction_smiles
       }
     );
 
@@ -84,33 +86,31 @@ export async function POST(req: NextRequest) {
     }
 
     const predictData = await predictRes.json();
-    // המפתח יכול להיות prediction_id או payload.id
-    const predictionId = predictData?.prediction_id || predictData?.payload?.id;
+    console.log("Predict response:", JSON.stringify(predictData).substring(0, 200));
     
+    const predictionId = predictData?.prediction_id || predictData?.payload?.id;
     if (!predictionId) {
-      console.error("No prediction ID in response:", predictData);
       return NextResponse.json(
         { error: "לא התקבל מזהה חיזוי" },
         { status: 502 }
       );
     }
+    console.log("Prediction ID:", predictionId);
 
     // 5. Wait & fetch results (poll every 2s, max 30s)
     let results = null;
     for (let i = 0; i < 15; i++) {
       await new Promise((r) => setTimeout(r, 2000));
       
-      // ✅ תיקון 3: נתיב נכון לקבלת תוצאות
       const resultRes = await fetch(
         `${RXN_BASE_URL}/predictions/${projectId}/${predictionId}`,
         {
-          headers: { Authorization: RXN_API_KEY },  // ✅ ללא Bearer
+          headers: { "Authorization": RXN_API_KEY },  // ✅ ללא Bearer!
         }
       );
 
       if (resultRes.ok) {
         const data = await resultRes.json();
-        // בדיקת שני פורמטים אפשריים של תשובה
         const attempts = data?.response?.payload?.attempts || data?.payload?.attempts;
         if (attempts?.length > 0) {
           results = attempts[0];
