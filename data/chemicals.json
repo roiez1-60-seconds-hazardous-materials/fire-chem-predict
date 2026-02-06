@@ -1123,8 +1123,1346 @@
     "hazards": [],
     "category_he": "מים",
     "category_en": "Water"
+  },
+  {
+    "name_he": "תיוניל כלוריד",
+    "name_en": "Thionyl chloride",
+    "formula": "SOCl₂",
+    "smiles": "O=S(Cl)Cl",
+    "cas": "7719-09-7",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "זרחן טריכלוריד",
+    "name_en": "Phosphorus trichloride",
+    "formula": "PCl₃",
+    "smiles": "ClP(Cl)Cl",
+    "cas": "7719-12-2",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "זרחן פנטכלוריד",
+    "name_en": "Phosphorus pentachloride",
+    "formula": "PCl₅",
+    "smiles": "ClP(Cl)(Cl)(Cl)Cl",
+    "cas": "10026-13-8",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אצטיל כלוריד",
+    "name_en": "Acetyl chloride",
+    "formula": "CH₃COCl",
+    "smiles": "CC(=O)Cl",
+    "cas": "75-36-5",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "כלורוסולפונית חומצה",
+    "name_en": "Chlorosulfonic acid",
+    "formula": "ClSO₃H",
+    "smiles": "OS(=O)(=O)Cl",
+    "cas": "7790-94-5",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "סיליקון טטרכלוריד",
+    "name_en": "Silicon tetrachloride",
+    "formula": "SiCl₄",
+    "smiles": "Cl[Si](Cl)(Cl)Cl",
+    "cas": "10026-04-7",
+    "hazards": [
+      "water_reactive",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "טיטניום טטרכלוריד",
+    "name_en": "Titanium tetrachloride",
+    "formula": "TiCl₄",
+    "smiles": "Cl[Ti](Cl)(Cl)Cl",
+    "cas": "7550-45-0",
+    "hazards": [
+      "water_reactive",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "בורון טריפלואוריד",
+    "name_en": "Boron trifluoride",
+    "formula": "BF₃",
+    "smiles": "FB(F)F",
+    "cas": "7637-07-2",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אלומיניום כלוריד",
+    "name_en": "Aluminum chloride",
+    "formula": "AlCl₃",
+    "smiles": "Cl[Al](Cl)Cl",
+    "cas": "7446-70-0",
+    "hazards": [
+      "water_reactive",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "נתרן מתכת (פרוסות)",
+    "name_en": "Sodium amide",
+    "formula": "NaNH₂",
+    "smiles": "[Na]N",
+    "cas": "7782-92-5",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "סידן מתכת",
+    "name_en": "Calcium metal",
+    "formula": "Ca",
+    "smiles": "[Ca]",
+    "cas": "7440-70-2",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "בריום מתכת",
+    "name_en": "Barium metal",
+    "formula": "Ba",
+    "smiles": "[Ba]",
+    "cas": "7440-39-3",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אולאום (חומצה גופרתית מעשנת)",
+    "name_en": "Oleum (fuming sulfuric acid)",
+    "formula": "H₂S₂O₇",
+    "smiles": "O=S(=O)(O)OS(=O)(=O)O",
+    "cas": "8014-95-7",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אשלגן מתכת (פיסות)",
+    "name_en": "Potassium hydride",
+    "formula": "KH",
+    "smiles": "[KH]",
+    "cas": "7693-26-7",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "ליתיום אלומיניום הידריד",
+    "name_en": "Lithium aluminum hydride",
+    "formula": "LiAlH₄",
+    "smiles": "[Li+].[AlH4-]",
+    "cas": "16853-85-3",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "פלואור",
+    "name_en": "Fluorine",
+    "formula": "F₂",
+    "smiles": "FF",
+    "cas": "7782-41-4",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "ברום",
+    "name_en": "Bromine",
+    "formula": "Br₂",
+    "smiles": "BrBr",
+    "cas": "7726-95-6",
+    "hazards": [
+      "toxic",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "חנקן דו חמצני",
+    "name_en": "Nitric oxide",
+    "formula": "NO",
+    "smiles": "[N]=O",
+    "cas": "10102-43-9",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "compressed_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "אוזון",
+    "name_en": "Ozone",
+    "formula": "O₃",
+    "smiles": "[O-][O+]=O",
+    "cas": "10028-15-6",
+    "hazards": [
+      "toxic",
+      "oxidizer"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פוספין",
+    "name_en": "Phosphine",
+    "formula": "PH₃",
+    "smiles": "P",
+    "cas": "7803-51-2",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "ארסין",
+    "name_en": "Arsine",
+    "formula": "AsH₃",
+    "smiles": "[AsH3]",
+    "cas": "7784-42-1",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "כלור דו חמצני",
+    "name_en": "Chlorine dioxide",
+    "formula": "ClO₂",
+    "smiles": "[O]Cl=O",
+    "cas": "10049-04-4",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "explosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "מתיל ברומיד",
+    "name_en": "Methyl bromide",
+    "formula": "CH₃Br",
+    "smiles": "CBr",
+    "cas": "74-83-9",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "בוטדיאן",
+    "name_en": "Butadiene",
+    "formula": "C₄H₆",
+    "smiles": "C=CC=C",
+    "cas": "106-99-0",
+    "hazards": [
+      "highly_flammable",
+      "carcinogen"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פאראתיון",
+    "name_en": "Parathion",
+    "formula": "C₁₀H₁₄NO₅PS",
+    "smiles": "CCOP(=S)(OCC)Oc1ccc([N+](=O)[O-])cc1",
+    "cas": "56-38-2",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "מלתיון",
+    "name_en": "Malathion",
+    "formula": "C₁₀H₁₉O₆PS₂",
+    "smiles": "CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC",
+    "cas": "121-75-5",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "כלורפיריפוס",
+    "name_en": "Chlorpyrifos",
+    "formula": "C₉H₁₁Cl₃NO₃PS",
+    "smiles": "CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl",
+    "cas": "2921-88-2",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "גליפוסאט",
+    "name_en": "Glyphosate",
+    "formula": "C₃H₈NO₅P",
+    "smiles": "OC(=O)CNCP(O)(O)=O",
+    "cas": "1071-83-6",
+    "hazards": [
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "דיכלורווס (DDVP)",
+    "name_en": "Dichlorvos (DDVP)",
+    "formula": "C₄H₇Cl₂O₄P",
+    "smiles": "COP(=O)(OC)OC=C(Cl)Cl",
+    "cas": "62-73-7",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "אנדוסולפן",
+    "name_en": "Endosulfan",
+    "formula": "C₉H₆Cl₆O₃S",
+    "smiles": "ClC1=C(Cl)C2(Cl)C3CC(OS(=O)O3)C1(Cl)C2(Cl)Cl",
+    "cas": "115-29-7",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "DDT",
+    "name_en": "DDT",
+    "formula": "C₁₄H₉Cl₅",
+    "smiles": "ClC(Cl)(Cl)C(c1ccc(Cl)cc1)c1ccc(Cl)cc1",
+    "cas": "50-29-3",
+    "hazards": [
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "דיאזינון",
+    "name_en": "Diazinon",
+    "formula": "C₁₂H₂₁N₂O₃PS",
+    "smiles": "CCOP(=S)(OCC)Oc1cc(C)nc(C(C)C)n1",
+    "cas": "333-41-5",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "ציפרמתרין",
+    "name_en": "Cypermethrin",
+    "formula": "C₂₂H₁₉Cl₂NO₃",
+    "smiles": "CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)c1cccc(Oc2ccccc2)c1",
+    "cas": "52315-07-8",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "2,4-D",
+    "name_en": "2,4-Dichlorophenoxyacetic acid",
+    "formula": "C₈H₆Cl₂O₃",
+    "smiles": "OC(=O)COc1ccc(Cl)cc1Cl",
+    "cas": "94-75-7",
+    "hazards": [
+      "toxic",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "קרברל (סווין)",
+    "name_en": "Carbaryl (Sevin)",
+    "formula": "C₁₂H₁₁NO₂",
+    "smiles": "CNC(=O)Oc1cccc2ccccc12",
+    "cas": "63-25-2",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "אימידקלופריד",
+    "name_en": "Imidacloprid",
+    "formula": "C₉H₁₀ClN₅O₂",
+    "smiles": "O=[N+]([O-])NC1=NCCN1Cc1ccc(Cl)nc1",
+    "cas": "138261-41-3",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "חומצה הידרובורמית",
+    "name_en": "Hydrobromic acid",
+    "formula": "HBr",
+    "smiles": "Br",
+    "cas": "10035-10-6",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה הידרויודית",
+    "name_en": "Hydroiodic acid",
+    "formula": "HI",
+    "smiles": "I",
+    "cas": "10034-85-2",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה גופרתנית",
+    "name_en": "Sulfurous acid",
+    "formula": "H₂SO₃",
+    "smiles": "OS(O)=O",
+    "cas": "7782-99-2",
+    "hazards": [
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה כלורית",
+    "name_en": "Chloric acid",
+    "formula": "HClO₃",
+    "smiles": "OCl(=O)=O",
+    "cas": "7790-93-4",
+    "hazards": [
+      "corrosive",
+      "oxidizer"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה טטרפלואורובורית",
+    "name_en": "Fluoroboric acid",
+    "formula": "HBF₄",
+    "smiles": "F[B-](F)(F)F",
+    "cas": "16872-11-0",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה טריכלורואצטית",
+    "name_en": "Trichloroacetic acid",
+    "formula": "C₂HCl₃O₂",
+    "smiles": "OC(=O)C(Cl)(Cl)Cl",
+    "cas": "76-03-9",
+    "hazards": [
+      "corrosive",
+      "env_hazard"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "הידרזין",
+    "name_en": "Hydrazine",
+    "formula": "N₂H₄",
+    "smiles": "NN",
+    "cas": "302-01-2",
+    "hazards": [
+      "toxic",
+      "flammable",
+      "carcinogen",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "נתרן מתילט",
+    "name_en": "Sodium methoxide",
+    "formula": "CH₃ONa",
+    "smiles": "CO[Na]",
+    "cas": "124-41-4",
+    "hazards": [
+      "water_reactive",
+      "flammable",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "אשלגן טרט-בוטוקסיד",
+    "name_en": "Potassium tert-butoxide",
+    "formula": "C₄H₉KO",
+    "smiles": "CC(C)(C)O[K]",
+    "cas": "865-47-4",
+    "hazards": [
+      "water_reactive",
+      "flammable",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "בריום הידרוקסיד",
+    "name_en": "Barium hydroxide",
+    "formula": "Ba(OH)₂",
+    "smiles": "[Ba+2].[OH-].[OH-]",
+    "cas": "17194-00-2",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "חומצה על-אוקטית",
+    "name_en": "Peracetic acid",
+    "formula": "C₂H₄O₃",
+    "smiles": "CC(=O)OO",
+    "cas": "79-21-0",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "flammable"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אשלגן דיכרומט",
+    "name_en": "Potassium dichromate",
+    "formula": "K₂Cr₂O₇",
+    "smiles": "[K+].[K+].[O-][Cr](=O)(=O)O[Cr]([O-])(=O)=O",
+    "cas": "7778-50-9",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "חנקת כסף",
+    "name_en": "Silver nitrate",
+    "formula": "AgNO₃",
+    "smiles": "[Ag+].[O-][N+](=O)=O",
+    "cas": "7761-88-8",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "ברומט אשלגן",
+    "name_en": "Potassium bromate",
+    "formula": "KBrO₃",
+    "smiles": "[K+].[O-]Br(=O)=O",
+    "cas": "7758-01-2",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "נתרן ניטריט",
+    "name_en": "Sodium nitrite",
+    "formula": "NaNO₂",
+    "smiles": "[Na+].[O-]N=O",
+    "cas": "7632-00-0",
+    "hazards": [
+      "oxidizer",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אמוניום פרכלורט",
+    "name_en": "Ammonium perchlorate",
+    "formula": "NH₄ClO₄",
+    "smiles": "[NH4+].[O-]Cl(=O)(=O)=O",
+    "cas": "7790-98-9",
+    "hazards": [
+      "oxidizer",
+      "explosive"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "כרומיום טריאוקסיד",
+    "name_en": "Chromium trioxide",
+    "formula": "CrO₃",
+    "smiles": "O=[Cr](=O)=O",
+    "cas": "1333-82-0",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "carcinogen",
+      "corrosive"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "מתיל איזוציאנט (MIC)",
+    "name_en": "Methyl isocyanate (MIC)",
+    "formula": "C₂H₃NO",
+    "smiles": "CN=C=O",
+    "cas": "624-83-9",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אקרולאין",
+    "name_en": "Acrolein",
+    "formula": "C₃H₄O",
+    "smiles": "C=CC=O",
+    "cas": "107-02-8",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ברומואצטון",
+    "name_en": "Bromoacetone",
+    "formula": "C₃H₅BrO",
+    "smiles": "CC(=O)CBr",
+    "cas": "598-31-2",
+    "hazards": [
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורואצטון",
+    "name_en": "Chloroacetone",
+    "formula": "C₃H₅ClO",
+    "smiles": "CC(=O)CCl",
+    "cas": "78-95-5",
+    "hazards": [
+      "toxic",
+      "irritant",
+      "flammable"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אתילן דיאמין",
+    "name_en": "Ethylenediamine",
+    "formula": "C₂H₈N₂",
+    "smiles": "NCCN",
+    "cas": "107-15-3",
+    "hazards": [
+      "corrosive",
+      "flammable",
+      "toxic"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "דימתיל סולפט",
+    "name_en": "Dimethyl sulfate",
+    "formula": "C₂H₆O₄S",
+    "smiles": "COS(=O)(=O)OC",
+    "cas": "77-78-1",
+    "hazards": [
+      "highly_toxic",
+      "carcinogen",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורואצטלדהיד",
+    "name_en": "Chloroacetaldehyde",
+    "formula": "C₂H₃ClO",
+    "smiles": "O=CCCl",
+    "cas": "107-20-0",
+    "hazards": [
+      "toxic",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "מתיל כלורופורמיאט",
+    "name_en": "Methyl chloroformate",
+    "formula": "C₂H₃ClO₂",
+    "smiles": "COC(=O)Cl",
+    "cas": "79-22-1",
+    "hazards": [
+      "toxic",
+      "flammable",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אפיכלורוהידרין",
+    "name_en": "Epichlorohydrin",
+    "formula": "C₃H₅ClO",
+    "smiles": "ClCC1CO1",
+    "cas": "106-89-8",
+    "hazards": [
+      "toxic",
+      "flammable",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "קרבון דיסולפיד",
+    "name_en": "Carbon disulfide",
+    "formula": "CS₂",
+    "smiles": "S=C=S",
+    "cas": "75-15-0",
+    "hazards": [
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ניטרובנזן",
+    "name_en": "Nitrobenzene",
+    "formula": "C₆H₅NO₂",
+    "smiles": "c1ccc([N+](=O)[O-])cc1",
+    "cas": "98-95-3",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כרומיל כלוריד",
+    "name_en": "Chromyl chloride",
+    "formula": "CrO₂Cl₂",
+    "smiles": "O=[Cr](=O)(Cl)Cl",
+    "cas": "14977-61-8",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "corrosive",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "בנזויל כלוריד",
+    "name_en": "Benzoyl chloride",
+    "formula": "C₇H₅ClO",
+    "smiles": "O=C(Cl)c1ccccc1",
+    "cas": "98-88-4",
+    "hazards": [
+      "corrosive",
+      "toxic",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "תלת כלוריד זרחן",
+    "name_en": "Phosphorus oxychloride",
+    "formula": "POCl₃",
+    "smiles": "O=P(Cl)(Cl)Cl",
+    "cas": "10025-87-3",
+    "hazards": [
+      "toxic",
+      "corrosive",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אקרילאמיד",
+    "name_en": "Acrylamide",
+    "formula": "C₃H₅NO",
+    "smiles": "C=CC(=O)N",
+    "cas": "79-06-1",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "מתנול (תעשייתי)",
+    "name_en": "Methyl mercaptan",
+    "formula": "CH₄S",
+    "smiles": "CS",
+    "cas": "74-93-1",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "דימתיל פורמאמיד (DMF)",
+    "name_en": "Dimethylformamide (DMF)",
+    "formula": "C₃H₇NO",
+    "smiles": "CN(C)C=O",
+    "cas": "68-12-2",
+    "hazards": [
+      "toxic",
+      "flammable"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "בנזידין",
+    "name_en": "Benzidine",
+    "formula": "C₁₂H₁₂N₂",
+    "smiles": "Nc1ccc(-c2ccc(N)cc2)cc1",
+    "cas": "92-87-5",
+    "hazards": [
+      "carcinogen",
+      "toxic"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "תרכלורואתילן (PCE)",
+    "name_en": "Tetrachloroethylene (PCE)",
+    "formula": "C₂Cl₄",
+    "smiles": "ClC(Cl)=C(Cl)Cl",
+    "cas": "127-18-4",
+    "hazards": [
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "טריכלורואתילן (TCE)",
+    "name_en": "Trichloroethylene (TCE)",
+    "formula": "C₂HCl₃",
+    "smiles": "ClC=C(Cl)Cl",
+    "cas": "79-01-6",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "1,4-דיוקסן",
+    "name_en": "1,4-Dioxane",
+    "formula": "C₄H₈O₂",
+    "smiles": "C1COCCO1",
+    "cas": "123-91-1",
+    "hazards": [
+      "flammable",
+      "carcinogen"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "מתיל אתיל קטון (MEK)",
+    "name_en": "Methyl ethyl ketone (MEK)",
+    "formula": "C₄H₈O",
+    "smiles": "CCC(=O)C",
+    "cas": "78-93-3",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "טטרהידרופוראן (THF)",
+    "name_en": "Tetrahydrofuran (THF)",
+    "formula": "C₄H₈O",
+    "smiles": "C1CCOC1",
+    "cas": "109-99-9",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "דימתיל סולפוקסיד (DMSO)",
+    "name_en": "Dimethyl sulfoxide (DMSO)",
+    "formula": "C₂H₆OS",
+    "smiles": "CS(=O)C",
+    "cas": "67-68-5",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "אתיל אצטט",
+    "name_en": "Ethyl acetate",
+    "formula": "C₄H₈O₂",
+    "smiles": "CCOC(=O)C",
+    "cas": "141-78-6",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "ציקלוהקסנון",
+    "name_en": "Cyclohexanone",
+    "formula": "C₆H₁₀O",
+    "smiles": "O=C1CCCCC1",
+    "cas": "108-94-1",
+    "hazards": [
+      "flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "n-הקסן",
+    "name_en": "n-Hexane",
+    "formula": "C₆H₁₄",
+    "smiles": "CCCCCC",
+    "cas": "110-54-3",
+    "hazards": [
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "כלורו-בנזן",
+    "name_en": "Chlorobenzene",
+    "formula": "C₆H₅Cl",
+    "smiles": "Clc1ccccc1",
+    "cas": "108-90-7",
+    "hazards": [
+      "flammable",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "איזואוקטן",
+    "name_en": "Isooctane",
+    "formula": "C₈H₁₈",
+    "smiles": "CC(C)CC(C)(C)C",
+    "cas": "540-84-1",
+    "hazards": [
+      "highly_flammable"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "פרופילן",
+    "name_en": "Propylene",
+    "formula": "C₃H₆",
+    "smiles": "CC=C",
+    "cas": "115-07-1",
+    "hazards": [
+      "highly_flammable",
+      "compressed_gas"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "מתיל טרט-בוטיל אתר (MTBE)",
+    "name_en": "MTBE",
+    "formula": "C₅H₁₂O",
+    "smiles": "COC(C)(C)C",
+    "cas": "1634-04-4",
+    "hazards": [
+      "highly_flammable",
+      "env_hazard"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "אמוניה ביתית",
+    "name_en": "Household ammonia",
+    "formula": "NH₃ (aq)",
+    "smiles": "N",
+    "cas": "1336-21-6",
+    "hazards": [
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "נפט לבן (ווייט ספיריט)",
+    "name_en": "White spirit",
+    "formula": "mix",
+    "smiles": "CCCCCCCCC",
+    "cas": "8052-41-3",
+    "hazards": [
+      "flammable",
+      "irritant"
+    ],
+    "category_he": "ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "חומצה סולפמית",
+    "name_en": "Sulfamic acid",
+    "formula": "NH₃SO₃",
+    "smiles": "NS(=O)(=O)O",
+    "cas": "5329-14-6",
+    "hazards": [
+      "irritant",
+      "corrosive"
+    ],
+    "category_he": "ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "גז חרדל (דוגמה)",
+    "name_en": "Mustard gas (sulfur mustard)",
+    "formula": "C₄H₈Cl₂S",
+    "smiles": "ClCCSCCCl",
+    "cas": "505-60-2",
+    "hazards": [
+      "highly_toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורופיקרין",
+    "name_en": "Chloropicrin",
+    "formula": "CCl₃NO₂",
+    "smiles": "O=[N+]([O-])C(Cl)(Cl)Cl",
+    "cas": "76-06-2",
+    "hazards": [
+      "highly_toxic",
+      "irritant"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "עופרת טטראתיל",
+    "name_en": "Tetraethyl lead",
+    "formula": "C₈H₂₀Pb",
+    "smiles": "CC[Pb](CC)(CC)CC",
+    "cas": "78-00-2",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כספית דו מתילית",
+    "name_en": "Dimethylmercury",
+    "formula": "C₂H₆Hg",
+    "smiles": "C[Hg]C",
+    "cas": "593-74-8",
+    "hazards": [
+      "fatal",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אוסמיום טטרוקסיד",
+    "name_en": "Osmium tetroxide",
+    "formula": "OsO₄",
+    "smiles": "O=[Os](=O)(=O)=O",
+    "cas": "20816-12-0",
+    "hazards": [
+      "highly_toxic",
+      "oxidizer",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "בריליום",
+    "name_en": "Beryllium",
+    "formula": "Be",
+    "smiles": "[Be]",
+    "cas": "7440-41-7",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ניטרוגליצרין",
+    "name_en": "Nitroglycerin",
+    "formula": "C₃H₅N₃O₉",
+    "smiles": "O=[N+]([O-])OCC(CO[N+](=O)[O-])O[N+](=O)[O-]",
+    "cas": "55-63-0",
+    "hazards": [
+      "explosive",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "TNT",
+    "name_en": "TNT (trinitrotoluene)",
+    "formula": "C₇H₅N₃O₆",
+    "smiles": "Cc1c([N+](=O)[O-])cc([N+](=O)[O-])cc1[N+](=O)[O-]",
+    "cas": "118-96-7",
+    "hazards": [
+      "explosive",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "חומצה פיקרית",
+    "name_en": "Picric acid",
+    "formula": "C₆H₃N₃O₇",
+    "smiles": "Oc1c([N+](=O)[O-])cc([N+](=O)[O-])cc1[N+](=O)[O-]",
+    "cas": "88-89-1",
+    "hazards": [
+      "explosive",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "כספית",
+    "name_en": "Mercury",
+    "formula": "Hg",
+    "smiles": "[Hg]",
+    "cas": "7439-97-6",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "עופרת",
+    "name_en": "Lead",
+    "formula": "Pb",
+    "smiles": "[Pb]",
+    "cas": "7439-92-1",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ארסן",
+    "name_en": "Arsenic",
+    "formula": "As",
+    "smiles": "[As]",
+    "cas": "7440-38-2",
+    "hazards": [
+      "highly_toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אבץ אבקה",
+    "name_en": "Zinc dust",
+    "formula": "Zn",
+    "smiles": "[Zn]",
+    "cas": "7440-66-6",
+    "hazards": [
+      "water_reactive",
+      "flammable",
+      "env_hazard"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
   }
-]
 
 
 
