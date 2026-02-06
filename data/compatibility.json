@@ -2,7 +2,18 @@
   "meta": {
     "description": "טבלת תאימות כימית בין קבוצות חומרים - בהשראת CAMEO Chemicals",
     "version": "2.0",
-    "categories": ["Acids", "Bases", "Water Reactive", "Oxidizers", "Fuels", "Solvents", "Gases", "Household", "Industrial", "Water"],
+    "categories": [
+      "Acids",
+      "Bases",
+      "Water Reactive",
+      "Oxidizers",
+      "Fuels",
+      "Solvents",
+      "Gases",
+      "Household",
+      "Industrial",
+      "Water"
+    ],
     "levels": {
       "incompatible": "לא תואם — תגובה מסוכנת צפויה (אדום)",
       "caution": "זהירות — תגובה אפשרית בתנאים מסוימים (צהוב)",
@@ -14,8 +25,16 @@
       "group1": "Acids",
       "group2": "Bases",
       "level": "incompatible",
-      "hazards_he": ["תגובה אקסותרמית חזקה", "התזת חומר", "שחרור חום רב"],
-      "hazards_en": ["Strong exothermic reaction", "Material splashing", "Significant heat release"],
+      "hazards_he": [
+        "תגובה אקסותרמית חזקה",
+        "התזת חומר",
+        "שחרור חום רב"
+      ],
+      "hazards_en": [
+        "Strong exothermic reaction",
+        "Material splashing",
+        "Significant heat release"
+      ],
       "description_he": "תגובת סתירה (neutralization) — משחררת חום רב. מגע ישיר בין חומצה חזקה לבסיס חזק עלול לגרום לרתיחה והתזה.",
       "icon": "🔥",
       "gases": []
@@ -24,28 +43,55 @@
       "group1": "Acids",
       "group2": "Water Reactive",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה", "שחרור גזים דליקים", "סכנת התפוצצות"],
-      "hazards_en": ["Violent reaction", "Release of flammable gases", "Explosion risk"],
+      "hazards_he": [
+        "תגובה אלימה",
+        "שחרור גזים דליקים",
+        "סכנת התפוצצות"
+      ],
+      "hazards_en": [
+        "Violent reaction",
+        "Release of flammable gases",
+        "Explosion risk"
+      ],
       "description_he": "מתכות תגובתיות למים מגיבות בחריפות עם חומצות ומשחררות גז מימן (H₂) דליק. סכנת התפוצצות.",
       "icon": "💥",
-      "gases": ["H₂ (מימן — דליק)"]
+      "gases": [
+        "H₂ (מימן — דליק)"
+      ]
     },
     {
       "group1": "Acids",
       "group2": "Oxidizers",
       "level": "incompatible",
-      "hazards_he": ["תגובה אקסותרמית", "שחרור גזים רעילים", "סכנת שריפה"],
-      "hazards_en": ["Exothermic reaction", "Release of toxic gases", "Fire risk"],
+      "hazards_he": [
+        "תגובה אקסותרמית",
+        "שחרור גזים רעילים",
+        "סכנת שריפה"
+      ],
+      "hazards_en": [
+        "Exothermic reaction",
+        "Release of toxic gases",
+        "Fire risk"
+      ],
       "description_he": "ערבוב חומצות עם מחמצנים עלול לגרום לתגובות בלתי נשלטות, שחרור גזים רעילים (כגון Cl₂) ושריפה.",
       "icon": "☠️",
-      "gases": ["Cl₂ (כלור — רעיל)", "ClO₂ (כלור דו-חמצני — רעיל)"]
+      "gases": [
+        "Cl₂ (כלור — רעיל)",
+        "ClO₂ (כלור דו-חמצני — רעיל)"
+      ]
     },
     {
       "group1": "Acids",
       "group2": "Fuels",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית עם חומצות מחמצנות", "סכנת שריפה"],
-      "hazards_en": ["Possible reaction with oxidizing acids", "Fire risk"],
+      "hazards_he": [
+        "תגובה אפשרית עם חומצות מחמצנות",
+        "סכנת שריפה"
+      ],
+      "hazards_en": [
+        "Possible reaction with oxidizing acids",
+        "Fire risk"
+      ],
       "description_he": "חומצות מחמצנות (כמו חנקתית) עלולות להצית דלקים. חומצות רגילות — סיכון נמוך.",
       "icon": "⚠️",
       "gases": []
@@ -54,8 +100,14 @@
       "group1": "Acids",
       "group2": "Solvents",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית", "שחרור חום"],
-      "hazards_en": ["Possible reaction", "Heat release"],
+      "hazards_he": [
+        "תגובה אפשרית",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Possible reaction",
+        "Heat release"
+      ],
       "description_he": "חומצות חזקות עלולות להגיב עם ממסים אורגניים. חומצות מחמצנות במיוחד מסוכנות עם ממסים דליקים.",
       "icon": "⚠️",
       "gases": []
@@ -64,8 +116,14 @@
       "group1": "Acids",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["תגובה משתנה בהתאם לגז", "שחרור גזים רעילים אפשרי"],
-      "hazards_en": ["Variable reaction depending on gas", "Possible toxic gas release"],
+      "hazards_he": [
+        "תגובה משתנה בהתאם לגז",
+        "שחרור גזים רעילים אפשרי"
+      ],
+      "hazards_en": [
+        "Variable reaction depending on gas",
+        "Possible toxic gas release"
+      ],
       "description_he": "חומצות עם אמוניה משחררות עשן. חומצות עם גזים דליקים — סיכון נמוך ברוב המקרים.",
       "icon": "⚠️",
       "gases": []
@@ -74,28 +132,50 @@
       "group1": "Acids",
       "group2": "Household",
       "level": "caution",
-      "hazards_he": ["שחרור גזים רעילים אפשרי", "תגובה אקסותרמית"],
-      "hazards_en": ["Possible toxic gas release", "Exothermic reaction"],
+      "hazards_he": [
+        "שחרור גזים רעילים אפשרי",
+        "תגובה אקסותרמית"
+      ],
+      "hazards_en": [
+        "Possible toxic gas release",
+        "Exothermic reaction"
+      ],
       "description_he": "ערבוב חומצות עם אקונומיקה (היפוכלוריט) משחרר גז כלור רעיל! ערבוב עם אמוניה משחרר כלוראמינים.",
       "icon": "☠️",
-      "gases": ["Cl₂ (כלור — רעיל)"]
+      "gases": [
+        "Cl₂ (כלור — רעיל)"
+      ]
     },
     {
       "group1": "Acids",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות", "שחרור גזים רעילים אפשרי"],
-      "hazards_en": ["Variable reactions", "Possible toxic gas release"],
+      "hazards_he": [
+        "תגובות משתנות",
+        "שחרור גזים רעילים אפשרי"
+      ],
+      "hazards_en": [
+        "Variable reactions",
+        "Possible toxic gas release"
+      ],
       "description_he": "חומצות עם ציאנידים משחררות גז HCN קטלני! חומצות עם פנולים — סיכון נמוך יותר.",
       "icon": "⚠️",
-      "gases": ["HCN (ציאן מימני — קטלני)"]
+      "gases": [
+        "HCN (ציאן מימני — קטלני)"
+      ]
     },
     {
       "group1": "Acids",
       "group2": "Acids",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית בין חומצות שונות", "שחרור חום"],
-      "hazards_en": ["Possible reaction between different acids", "Heat release"],
+      "hazards_he": [
+        "תגובה אפשרית בין חומצות שונות",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Possible reaction between different acids",
+        "Heat release"
+      ],
       "description_he": "ערבוב חומצות מחמצנות (חנקתית, פרכלורית) עם חומצות אורגניות עלול לגרום לתגובה אלימה.",
       "icon": "⚠️",
       "gases": []
@@ -104,8 +184,16 @@
       "group1": "Acids",
       "group2": "Water",
       "level": "caution",
-      "hazards_he": ["תגובה אקסותרמית", "התזת חומר", "שחרור חום"],
-      "hazards_en": ["Exothermic reaction", "Material splashing", "Heat release"],
+      "hazards_he": [
+        "תגובה אקסותרמית",
+        "התזת חומר",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Exothermic reaction",
+        "Material splashing",
+        "Heat release"
+      ],
       "description_he": "מהילת חומצות מרוכזות (במיוחד גופרתית) במים משחררת חום רב. תמיד להוסיף חומצה למים ולא להפך! סכנת רתיחה והתזה.",
       "icon": "🔥",
       "gases": []
@@ -114,18 +202,34 @@
       "group1": "Bases",
       "group2": "Water Reactive",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה", "שחרור גזים דליקים", "שחרור חום"],
-      "hazards_en": ["Violent reaction", "Flammable gas release", "Heat release"],
+      "hazards_he": [
+        "תגובה אלימה",
+        "שחרור גזים דליקים",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Violent reaction",
+        "Flammable gas release",
+        "Heat release"
+      ],
       "description_he": "בסיסים מימיים מכילים מים — מתכות תגובתיות מגיבות עם המים בתגובה אלימה.",
       "icon": "💥",
-      "gases": ["H₂ (מימן — דליק)"]
+      "gases": [
+        "H₂ (מימן — דליק)"
+      ]
     },
     {
       "group1": "Bases",
       "group2": "Oxidizers",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית", "שחרור חום"],
-      "hazards_en": ["Possible reaction", "Heat release"],
+      "hazards_he": [
+        "תגובה אפשרית",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Possible reaction",
+        "Heat release"
+      ],
       "description_he": "בסיסים חזקים עלולים להגיב עם מחמצנים מסוימים. יש לנהוג בזהירות.",
       "icon": "⚠️",
       "gases": []
@@ -144,8 +248,12 @@
       "group1": "Bases",
       "group2": "Solvents",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית עם ממסים מסוימים"],
-      "hazards_en": ["Possible reaction with certain solvents"],
+      "hazards_he": [
+        "תגובה אפשרית עם ממסים מסוימים"
+      ],
+      "hazards_en": [
+        "Possible reaction with certain solvents"
+      ],
       "description_he": "בסיסים חזקים עלולים להגיב עם ממסים כלוריים (כלורופורם, DCM) וליצור תוצרים מסוכנים.",
       "icon": "⚠️",
       "gases": []
@@ -154,8 +262,12 @@
       "group1": "Bases",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "בסיסים סופגים גזים חומציים (HCl, SO₂). תגובה בטוחה יחסית אך אקסותרמית.",
       "icon": "⚠️",
       "gases": []
@@ -164,18 +276,28 @@
       "group1": "Bases",
       "group2": "Household",
       "level": "caution",
-      "hazards_he": ["שחרור גזים רעילים אפשרי"],
-      "hazards_en": ["Possible toxic gas release"],
+      "hazards_he": [
+        "שחרור גזים רעילים אפשרי"
+      ],
+      "hazards_en": [
+        "Possible toxic gas release"
+      ],
       "description_he": "אמוניה + אקונומיקה = כלוראמינים רעילים! שילוב מסוכן מאוד.",
       "icon": "☠️",
-      "gases": ["NH₂Cl (כלוראמין — רעיל)"]
+      "gases": [
+        "NH₂Cl (כלוראמין — רעיל)"
+      ]
     },
     {
       "group1": "Bases",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "בסיסים חזקים עלולים להגיב עם איזוציאנטים ואפוקסידים.",
       "icon": "⚠️",
       "gases": []
@@ -194,8 +316,14 @@
       "group1": "Bases",
       "group2": "Water",
       "level": "caution",
-      "hazards_he": ["תגובה אקסותרמית", "שחרור חום"],
-      "hazards_en": ["Exothermic reaction", "Heat release"],
+      "hazards_he": [
+        "תגובה אקסותרמית",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Exothermic reaction",
+        "Heat release"
+      ],
       "description_he": "המסת בסיסים חזקים (NaOH, KOH) במים משחררת חום רב. סיד חי (CaO) מגיב בחריפות עם מים — תגובה מאוד אקסותרמית!",
       "icon": "🔥",
       "gases": []
@@ -204,8 +332,12 @@
       "group1": "Water Reactive",
       "group2": "Water Reactive",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית בין מתכות שונות"],
-      "hazards_en": ["Possible reaction between different metals"],
+      "hazards_he": [
+        "תגובה אפשרית בין מתכות שונות"
+      ],
+      "hazards_en": [
+        "Possible reaction between different metals"
+      ],
       "description_he": "מתכות תגובתיות שונות עלולות להגיב זו עם זו בטמפרטורה גבוהה.",
       "icon": "⚠️",
       "gases": []
@@ -214,8 +346,16 @@
       "group1": "Water Reactive",
       "group2": "Oxidizers",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה", "סכנת התפוצצות", "שריפה"],
-      "hazards_en": ["Violent reaction", "Explosion risk", "Fire"],
+      "hazards_he": [
+        "תגובה אלימה",
+        "סכנת התפוצצות",
+        "שריפה"
+      ],
+      "hazards_en": [
+        "Violent reaction",
+        "Explosion risk",
+        "Fire"
+      ],
       "description_he": "מתכות תגובתיות עם מחמצנים — תגובה אלימה ביותר! סכנת שריפה והתפוצצות.",
       "icon": "💥",
       "gases": []
@@ -224,8 +364,12 @@
       "group1": "Water Reactive",
       "group2": "Fuels",
       "level": "caution",
-      "hazards_he": ["סכנת הצתה"],
-      "hazards_en": ["Ignition risk"],
+      "hazards_he": [
+        "סכנת הצתה"
+      ],
+      "hazards_en": [
+        "Ignition risk"
+      ],
       "description_he": "מתכות תגובתיות שמתלקחות עלולות להצית דלקים בסביבתן.",
       "icon": "⚠️",
       "gases": []
@@ -234,18 +378,32 @@
       "group1": "Water Reactive",
       "group2": "Solvents",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה", "שחרור גזים דליקים", "שריפה"],
-      "hazards_en": ["Violent reaction", "Flammable gas release", "Fire"],
+      "hazards_he": [
+        "תגובה אלימה",
+        "שחרור גזים דליקים",
+        "שריפה"
+      ],
+      "hazards_en": [
+        "Violent reaction",
+        "Flammable gas release",
+        "Fire"
+      ],
       "description_he": "ממסים רבים מכילים מים או קבוצות הידרוקסיל — מתכות תגובתיות מגיבות איתם בחריפות.",
       "icon": "🔥",
-      "gases": ["H₂ (מימן — דליק)"]
+      "gases": [
+        "H₂ (מימן — דליק)"
+      ]
     },
     {
       "group1": "Water Reactive",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "תלוי בגז — גזים לחים עלולים לגרום לתגובה עם מתכות תגובתיות למים.",
       "icon": "⚠️",
       "gases": []
@@ -254,18 +412,30 @@
       "group1": "Water Reactive",
       "group2": "Household",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה עם מוצרים מימיים", "שחרור גזים דליקים"],
-      "hazards_en": ["Violent reaction with water-based products", "Flammable gas release"],
+      "hazards_he": [
+        "תגובה אלימה עם מוצרים מימיים",
+        "שחרור גזים דליקים"
+      ],
+      "hazards_en": [
+        "Violent reaction with water-based products",
+        "Flammable gas release"
+      ],
       "description_he": "מוצרי בית מימיים (אקונומיקה, חומצה מלחית) מכילים מים — תגובה אלימה עם מתכות תגובתיות.",
       "icon": "💥",
-      "gases": ["H₂ (מימן — דליק)"]
+      "gases": [
+        "H₂ (מימן — דליק)"
+      ]
     },
     {
       "group1": "Water Reactive",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "תלוי בחומר הספציפי — חלק מהחומרים התעשייתיים מכילים מים או קבוצות פעילות.",
       "icon": "⚠️",
       "gases": []
@@ -274,18 +444,37 @@
       "group1": "Water Reactive",
       "group2": "Water",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה מאוד", "שחרור גז מימן דליק", "שחרור חום עצום", "סכנת התפוצצות", "סכנת שריפה"],
-      "hazards_en": ["Very violent reaction", "Flammable hydrogen gas release", "Extreme heat release", "Explosion risk", "Fire risk"],
+      "hazards_he": [
+        "תגובה אלימה מאוד",
+        "שחרור גז מימן דליק",
+        "שחרור חום עצום",
+        "סכנת התפוצצות",
+        "סכנת שריפה"
+      ],
+      "hazards_en": [
+        "Very violent reaction",
+        "Flammable hydrogen gas release",
+        "Extreme heat release",
+        "Explosion risk",
+        "Fire risk"
+      ],
       "description_he": "זהו השילוב המסוכן ביותר! נתרן/אשלגן/ליתיום במגע עם מים — תגובה אלימה מיידית עם שחרור גז מימן דליק שמתלקח. סידן קרביד + מים = גז אצטילן דליק. אלומיניום אבקתי + מים = מימן + חום עצום.",
       "icon": "💥",
-      "gases": ["H₂ (מימן — דליק מאוד)", "C₂H₂ (אצטילן — דליק, מ-CaC₂)"]
+      "gases": [
+        "H₂ (מימן — דליק מאוד)",
+        "C₂H₂ (אצטילן — דליק, מ-CaC₂)"
+      ]
     },
     {
       "group1": "Oxidizers",
       "group2": "Oxidizers",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית בין מחמצנים שונים"],
-      "hazards_en": ["Possible reaction between different oxidizers"],
+      "hazards_he": [
+        "תגובה אפשרית בין מחמצנים שונים"
+      ],
+      "hazards_en": [
+        "Possible reaction between different oxidizers"
+      ],
       "description_he": "מחמצנים חזקים עלולים להגיב עם מחמצנים חלשים יותר. יש לאחסן בנפרד.",
       "icon": "⚠️",
       "gases": []
@@ -294,8 +483,16 @@
       "group1": "Oxidizers",
       "group2": "Fuels",
       "level": "incompatible",
-      "hazards_he": ["סכנת שריפה חמורה", "סכנת התפוצצות", "תגובה אלימה"],
-      "hazards_en": ["Severe fire risk", "Explosion risk", "Violent reaction"],
+      "hazards_he": [
+        "סכנת שריפה חמורה",
+        "סכנת התפוצצות",
+        "תגובה אלימה"
+      ],
+      "hazards_en": [
+        "Severe fire risk",
+        "Explosion risk",
+        "Violent reaction"
+      ],
       "description_he": "מחמצנים + דלקים = שילוב מסוכן ביותר! תגובה אקסותרמית חזקה, סכנת שריפה והתפוצצות.",
       "icon": "💥",
       "gases": []
@@ -304,8 +501,16 @@
       "group1": "Oxidizers",
       "group2": "Solvents",
       "level": "incompatible",
-      "hazards_he": ["סכנת שריפה", "תגובה אקסותרמית", "סכנת התפוצצות"],
-      "hazards_en": ["Fire risk", "Exothermic reaction", "Explosion risk"],
+      "hazards_he": [
+        "סכנת שריפה",
+        "תגובה אקסותרמית",
+        "סכנת התפוצצות"
+      ],
+      "hazards_en": [
+        "Fire risk",
+        "Exothermic reaction",
+        "Explosion risk"
+      ],
       "description_he": "מחמצנים עם ממסים אורגניים (אצטון, אתנול) — סכנת שריפה והתפוצצות! שילוב אסור.",
       "icon": "🔥",
       "gases": []
@@ -314,8 +519,14 @@
       "group1": "Oxidizers",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות", "סכנת הצתה עם גזים דליקים"],
-      "hazards_en": ["Variable reactions", "Ignition risk with flammable gases"],
+      "hazards_he": [
+        "תגובות משתנות",
+        "סכנת הצתה עם גזים דליקים"
+      ],
+      "hazards_en": [
+        "Variable reactions",
+        "Ignition risk with flammable gases"
+      ],
       "description_he": "מחמצנים עם גזים דליקים (אצטילן, מימן) — סכנת הצתה. גזים אינרטיים — בטוח.",
       "icon": "⚠️",
       "gases": []
@@ -324,8 +535,14 @@
       "group1": "Oxidizers",
       "group2": "Household",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית", "שחרור חום"],
-      "hazards_en": ["Possible reaction", "Heat release"],
+      "hazards_he": [
+        "תגובה אפשרית",
+        "שחרור חום"
+      ],
+      "hazards_en": [
+        "Possible reaction",
+        "Heat release"
+      ],
       "description_he": "מחמצנים חזקים עלולים להגיב עם חומרי ניקוי אורגניים. יש להפריד.",
       "icon": "⚠️",
       "gases": []
@@ -334,8 +551,14 @@
       "group1": "Oxidizers",
       "group2": "Industrial",
       "level": "incompatible",
-      "hazards_he": ["תגובה אלימה", "סכנת שריפה והתפוצצות"],
-      "hazards_en": ["Violent reaction", "Fire and explosion risk"],
+      "hazards_he": [
+        "תגובה אלימה",
+        "סכנת שריפה והתפוצצות"
+      ],
+      "hazards_en": [
+        "Violent reaction",
+        "Fire and explosion risk"
+      ],
       "description_he": "מחמצנים עם חומרים אורגניים תעשייתיים (סטירן, ויניל כלוריד) — סכנת שריפה והתפוצצות.",
       "icon": "💥",
       "gases": []
@@ -344,11 +567,19 @@
       "group1": "Oxidizers",
       "group2": "Water",
       "level": "caution",
-      "hazards_he": ["תגובה אקסותרמית אפשרית", "שחרור גזים"],
-      "hazards_en": ["Possible exothermic reaction", "Gas release"],
+      "hazards_he": [
+        "תגובה אקסותרמית אפשרית",
+        "שחרור גזים"
+      ],
+      "hazards_en": [
+        "Possible exothermic reaction",
+        "Gas release"
+      ],
       "description_he": "חלק מהמחמצנים מגיבים עם מים: נתרן פרוקסיד + מים = תגובה אקסותרמית חזקה + שחרור חמצן. סידן היפוכלוריט במים משחרר חום.",
       "icon": "⚠️",
-      "gases": ["O₂ (חמצן — מעודד בעירה)"]
+      "gases": [
+        "O₂ (חמצן — מעודד בעירה)"
+      ]
     },
     {
       "group1": "Fuels",
@@ -364,8 +595,12 @@
       "group1": "Fuels",
       "group2": "Solvents",
       "level": "caution",
-      "hazards_he": ["סכנת שריפה מוגברת"],
-      "hazards_en": ["Increased fire risk"],
+      "hazards_he": [
+        "סכנת שריפה מוגברת"
+      ],
+      "hazards_en": [
+        "Increased fire risk"
+      ],
       "description_he": "דלקים + ממסים דליקים = סכנת שריפה מוגברת. שניהם דליקים.",
       "icon": "⚠️",
       "gases": []
@@ -374,8 +609,12 @@
       "group1": "Fuels",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["סכנת שריפה עם גזים דליקים"],
-      "hazards_en": ["Fire risk with flammable gases"],
+      "hazards_he": [
+        "סכנת שריפה עם גזים דליקים"
+      ],
+      "hazards_en": [
+        "Fire risk with flammable gases"
+      ],
       "description_he": "שילוב דלקים עם גזים דליקים מגביר סכנת שריפה. עם גזים רעילים — סכנה כפולה.",
       "icon": "⚠️",
       "gases": []
@@ -394,8 +633,12 @@
       "group1": "Fuels",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["סכנת שריפה עם חומרים מסוימים"],
-      "hazards_en": ["Fire risk with certain materials"],
+      "hazards_he": [
+        "סכנת שריפה עם חומרים מסוימים"
+      ],
+      "hazards_en": [
+        "Fire risk with certain materials"
+      ],
       "description_he": "דלקים עם חומרים תעשייתיים — תלוי בחומר. יש לבדוק כל מקרה.",
       "icon": "⚠️",
       "gases": []
@@ -424,8 +667,12 @@
       "group1": "Solvents",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["סכנת שריפה אפשרית"],
-      "hazards_en": ["Possible fire risk"],
+      "hazards_he": [
+        "סכנת שריפה אפשרית"
+      ],
+      "hazards_en": [
+        "Possible fire risk"
+      ],
       "description_he": "ממסים דליקים + גזים דליקים = סכנת שריפה מוגברת.",
       "icon": "⚠️",
       "gases": []
@@ -434,8 +681,12 @@
       "group1": "Solvents",
       "group2": "Household",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית"],
-      "hazards_en": ["Possible reaction"],
+      "hazards_he": [
+        "תגובה אפשרית"
+      ],
+      "hazards_en": [
+        "Possible reaction"
+      ],
       "description_he": "ממסים אורגניים עלולים לפגוע בפלסטיק ואריזות. סכנת שריפה עם ממסים דליקים.",
       "icon": "⚠️",
       "gases": []
@@ -444,8 +695,12 @@
       "group1": "Solvents",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "ממסים עם חומרים תעשייתיים — תלוי בחומרים. איזוציאנטים מגיבים עם אלכוהולים.",
       "icon": "⚠️",
       "gases": []
@@ -464,8 +719,12 @@
       "group1": "Gases",
       "group2": "Gases",
       "level": "caution",
-      "hazards_he": ["תגובה אפשרית בין גזים שונים"],
-      "hazards_en": ["Possible reaction between different gases"],
+      "hazards_he": [
+        "תגובה אפשרית בין גזים שונים"
+      ],
+      "hazards_en": [
+        "Possible reaction between different gases"
+      ],
       "description_he": "גזים דליקים עם גזים מחמצנים (כלור + אמוניה) — תגובה מסוכנת! גזים אינרטיים — בטוח.",
       "icon": "⚠️",
       "gases": []
@@ -474,18 +733,28 @@
       "group1": "Gases",
       "group2": "Household",
       "level": "caution",
-      "hazards_he": ["שחרור גזים רעילים אפשרי"],
-      "hazards_en": ["Possible toxic gas release"],
+      "hazards_he": [
+        "שחרור גזים רעילים אפשרי"
+      ],
+      "hazards_en": [
+        "Possible toxic gas release"
+      ],
       "description_he": "כלור + אמוניה (בחומרי ניקוי) = כלוראמינים רעילים. זהירות עם גזים רעילים.",
       "icon": "⚠️",
-      "gases": ["NH₂Cl (כלוראמין — רעיל)"]
+      "gases": [
+        "NH₂Cl (כלוראמין — רעיל)"
+      ]
     },
     {
       "group1": "Gases",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "תלוי בגז ובחומר התעשייתי. יש לבדוק כל שילוב.",
       "icon": "⚠️",
       "gases": []
@@ -494,31 +763,51 @@
       "group1": "Gases",
       "group2": "Water",
       "level": "caution",
-      "hazards_he": ["גזים מסוימים מגיבים עם מים"],
-      "hazards_en": ["Certain gases react with water"],
+      "hazards_he": [
+        "גזים מסוימים מגיבים עם מים"
+      ],
+      "hazards_en": [
+        "Certain gases react with water"
+      ],
       "description_he": "גזים חומציים (HCl, SO₂, Cl₂) נמסים במים ויוצרים תמיסות חומציות. פוסגן (COCl₂) מגיב עם מים ומשחרר HCl. גזים אינרטיים ודליקים — אינם מגיבים.",
       "icon": "⚠️",
-      "gases": ["HCl (חומצה מלחית)", "H₂SO₃ (חומצה גופריתית)"]
+      "gases": [
+        "HCl (חומצה מלחית)",
+        "H₂SO₃ (חומצה גופריתית)"
+      ]
     },
     {
       "group1": "Household",
       "group2": "Household",
       "level": "caution",
-      "hazards_he": ["שחרור גזים רעילים אפשרי"],
-      "hazards_en": ["Possible toxic gas release"],
+      "hazards_he": [
+        "שחרור גזים רעילים אפשרי"
+      ],
+      "hazards_en": [
+        "Possible toxic gas release"
+      ],
       "description_he": "אקונומיקה + חומרי ניקוי עם אמוניה = כלוראמינים! אסור לערבב חומרי ניקוי.",
       "icon": "☠️",
-      "gases": ["Cl₂ (כלור — רעיל)", "NH₂Cl (כלוראמין — רעיל)"]
+      "gases": [
+        "Cl₂ (כלור — רעיל)",
+        "NH₂Cl (כלוראמין — רעיל)"
+      ]
     },
     {
       "group1": "Household",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "תלוי בחומרים הספציפיים. אקונומיקה + ציאנידים — שחרור גז רעיל!",
       "icon": "⚠️",
-      "gases": ["HCN (ציאן מימני — קטלני)"]
+      "gases": [
+        "HCN (ציאן מימני — קטלני)"
+      ]
     },
     {
       "group1": "Household",
@@ -534,8 +823,12 @@
       "group1": "Industrial",
       "group2": "Industrial",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות"],
-      "hazards_en": ["Variable reactions"],
+      "hazards_he": [
+        "תגובות משתנות"
+      ],
+      "hazards_en": [
+        "Variable reactions"
+      ],
       "description_he": "תלוי בחומרים הספציפיים. חומרים מסוימים תגובתיים זה עם זה.",
       "icon": "⚠️",
       "gases": []
@@ -544,11 +837,17 @@
       "group1": "Industrial",
       "group2": "Water",
       "level": "caution",
-      "hazards_he": ["תגובות משתנות בהתאם לחומר"],
-      "hazards_en": ["Variable reactions depending on material"],
+      "hazards_he": [
+        "תגובות משתנות בהתאם לחומר"
+      ],
+      "hazards_en": [
+        "Variable reactions depending on material"
+      ],
       "description_he": "נתרן ציאניד + מים = שחרור HCN רעיל! איזוציאנטים (TDI) מגיבים עם מים בהתקף. אתילן אוקסיד מגיב עם מים. חומרים רבים אחרים אינם מגיבים.",
       "icon": "⚠️",
-      "gases": ["HCN (ציאן מימני — קטלני, מציאנידים)"]
+      "gases": [
+        "HCN (ציאן מימני — קטלני, מציאנידים)"
+      ]
     },
     {
       "group1": "Water",
@@ -559,6 +858,214 @@
       "description_he": "מים עם מים — אין תגובה כימית.",
       "icon": "✅",
       "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Pesticides",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "ערבוב חומרי הדברה שונים עלול ליצור תרכובות רעילות יותר"
+      ],
+      "hazards_en": [
+        "Mixing pesticides may create more toxic compounds"
+      ],
+      "description_he": "אין לערבב חומרי הדברה שונים ללא הנחיות יצרן — עלולים להיווצר תוצרים רעילים יותר.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Acids",
+      "level": "incompatible",
+      "icon": "🔴",
+      "hazards_he": [
+        "פירוק חומר ההדברה",
+        "שחרור גזים רעילים",
+        "סכנת הרעלה"
+      ],
+      "hazards_en": [
+        "Pesticide decomposition",
+        "Toxic gas release",
+        "Poisoning risk"
+      ],
+      "description_he": "חומצות חזקות מפרקות חומרי הדברה אורגנו-זרחניים ומשחררות גזים רעילים.",
+      "gases": [
+        "PH₃ (פוספין — קטלני)",
+        "H₂S (מימן גופרתי)"
+      ]
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Bases",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "הידרוליזה של חומר ההדברה",
+        "שינוי ב-pH"
+      ],
+      "hazards_en": [
+        "Pesticide hydrolysis",
+        "pH change"
+      ],
+      "description_he": "בסיסים חזקים גורמים לפירוק (הידרוליזה) של חומרי הדברה — עלולים להשתחרר תוצרים רעילים.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Oxidizers",
+      "level": "incompatible",
+      "icon": "🔴",
+      "hazards_he": [
+        "תגובה אקסותרמית",
+        "סכנת אש",
+        "שחרור גזים רעילים"
+      ],
+      "hazards_en": [
+        "Exothermic reaction",
+        "Fire hazard",
+        "Toxic gas release"
+      ],
+      "description_he": "מחמצנים עלולים לגרום להתלקחות של חומרי הדברה אורגניים ושחרור עשן רעיל.",
+      "gases": [
+        "SOx (תחמוצות גופרית)",
+        "NOx (תחמוצות חנקן)",
+        "POx (תחמוצות זרחן)"
+      ]
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Water",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "דליפה לסביבה",
+        "זיהום מקורות מים"
+      ],
+      "hazards_en": [
+        "Environmental contamination",
+        "Water source pollution"
+      ],
+      "description_he": "חומרי הדברה במגע עם מים עלולים לזהם מקורות מים. חלקם מתפרקים בנוכחות מים.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Water Reactive",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "תגובה לא צפויה",
+        "סכנת אש"
+      ],
+      "hazards_en": [
+        "Unpredictable reaction",
+        "Fire hazard"
+      ],
+      "description_he": "ערבוב חומרי הדברה עם חומרים תגובתיים למים עלול לגרום לתגובות לא צפויות.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Fuels",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "סכנת אש",
+        "עשן רעיל בשריפה"
+      ],
+      "hazards_en": [
+        "Fire hazard",
+        "Toxic smoke if burned"
+      ],
+      "description_he": "חומרי הדברה עם דלקים — סכנת אש. בשריפה עלול להשתחרר עשן רעיל במיוחד.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Solvents",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "המסה וספיגה מוגברת",
+        "סכנת אש"
+      ],
+      "hazards_en": [
+        "Enhanced absorption",
+        "Fire risk"
+      ],
+      "description_he": "ממסים ממיסים חומרי הדברה ומגבירים את חדירתם דרך העור — סכנת הרעלה.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Gases",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "תערובת רעילה",
+        "סכנת שאיפה"
+      ],
+      "hazards_en": [
+        "Toxic mixture",
+        "Inhalation hazard"
+      ],
+      "description_he": "ערבוב חומרי הדברה עם גזים רעילים מגביר משמעותית את סכנת ההרעלה.",
+      "gases": []
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Household",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "תגובה כימית",
+        "סכנת הרעלה"
+      ],
+      "hazards_en": [
+        "Chemical reaction",
+        "Poisoning risk"
+      ],
+      "description_he": "אין לערבב חומרי הדברה עם חומרי ניקוי ביתיים — עלולים להיווצר תרכובות רעילות.",
+      "gases": [
+        "Cl₂ (כלור — עם מוצרי כלור)"
+      ]
+    },
+    {
+      "group1": "Pesticides",
+      "group2": "Industrial",
+      "level": "caution",
+      "icon": "🟡",
+      "hazards_he": [
+        "תגובה לא צפויה",
+        "סכנת הרעלה"
+      ],
+      "hazards_en": [
+        "Unpredictable reaction",
+        "Poisoning risk"
+      ],
+      "description_he": "ערבוב חומרי הדברה עם חומרים תעשייתיים עלול ליצור תוצרים רעילים.",
+      "gases": []
     }
+  ],
+  "version": "3.0",
+  "total_categories": 11,
+  "categories": [
+    "Acids",
+    "Bases",
+    "Water Reactive",
+    "Oxidizers",
+    "Fuels",
+    "Solvents",
+    "Gases",
+    "Household",
+    "Industrial",
+    "Water",
+    "Pesticides"
   ]
 }
+
+
+
+
+
+
