@@ -1,1068 +1,2468 @@
-{
-  "meta": {
-    "description": "טבלת תאימות כימית בין קבוצות חומרים - בהשראת CAMEO Chemicals",
-    "version": "2.0",
-    "categories": [
-      "Acids",
-      "Bases",
-      "Water Reactive",
-      "Oxidizers",
-      "Fuels",
-      "Solvents",
-      "Gases",
-      "Household",
-      "Industrial",
-      "Water"
+[
+  {
+    "name_he": "נתרן (מתכת)",
+    "name_en": "Sodium metal",
+    "formula": "Na",
+    "smiles": "[Na]",
+    "cas": "7440-23-5",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
     ],
-    "levels": {
-      "incompatible": "לא תואם — תגובה מסוכנת צפויה (אדום)",
-      "caution": "זהירות — תגובה אפשרית בתנאים מסוימים (צהוב)",
-      "compatible": "תואם — אין תגובה מסוכנת צפויה (ירוק)"
-    }
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
   },
-  "rules": [
-    {
-      "group1": "Acids",
-      "group2": "Bases",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אקסותרמית חזקה",
-        "התזת חומר",
-        "שחרור חום רב"
-      ],
-      "hazards_en": [
-        "Strong exothermic reaction",
-        "Material splashing",
-        "Significant heat release"
-      ],
-      "description_he": "תגובת סתירה (neutralization) — משחררת חום רב. מגע ישיר בין חומצה חזקה לבסיס חזק עלול לגרום לרתיחה והתזה.",
-      "icon": "🔥",
-      "gases": []
-    },
-    {
-      "group1": "Acids",
-      "group2": "Water Reactive",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה",
-        "שחרור גזים דליקים",
-        "סכנת התפוצצות"
-      ],
-      "hazards_en": [
-        "Violent reaction",
-        "Release of flammable gases",
-        "Explosion risk"
-      ],
-      "description_he": "מתכות תגובתיות למים מגיבות בחריפות עם חומצות ומשחררות גז מימן (H₂) דליק. סכנת התפוצצות.",
-      "icon": "💥",
-      "gases": [
-        "H₂ (מימן — דליק)"
-      ]
-    },
-    {
-      "group1": "Acids",
-      "group2": "Oxidizers",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אקסותרמית",
-        "שחרור גזים רעילים",
-        "סכנת שריפה"
-      ],
-      "hazards_en": [
-        "Exothermic reaction",
-        "Release of toxic gases",
-        "Fire risk"
-      ],
-      "description_he": "ערבוב חומצות עם מחמצנים עלול לגרום לתגובות בלתי נשלטות, שחרור גזים רעילים (כגון Cl₂) ושריפה.",
-      "icon": "☠️",
-      "gases": [
-        "Cl₂ (כלור — רעיל)",
-        "ClO₂ (כלור דו-חמצני — רעיל)"
-      ]
-    },
-    {
-      "group1": "Acids",
-      "group2": "Fuels",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית עם חומצות מחמצנות",
-        "סכנת שריפה"
-      ],
-      "hazards_en": [
-        "Possible reaction with oxidizing acids",
-        "Fire risk"
-      ],
-      "description_he": "חומצות מחמצנות (כמו חנקתית) עלולות להצית דלקים. חומצות רגילות — סיכון נמוך.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Acids",
-      "group2": "Solvents",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Possible reaction",
-        "Heat release"
-      ],
-      "description_he": "חומצות חזקות עלולות להגיב עם ממסים אורגניים. חומצות מחמצנות במיוחד מסוכנות עם ממסים דליקים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Acids",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה משתנה בהתאם לגז",
-        "שחרור גזים רעילים אפשרי"
-      ],
-      "hazards_en": [
-        "Variable reaction depending on gas",
-        "Possible toxic gas release"
-      ],
-      "description_he": "חומצות עם אמוניה משחררות עשן. חומצות עם גזים דליקים — סיכון נמוך ברוב המקרים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Acids",
-      "group2": "Household",
-      "level": "caution",
-      "hazards_he": [
-        "שחרור גזים רעילים אפשרי",
-        "תגובה אקסותרמית"
-      ],
-      "hazards_en": [
-        "Possible toxic gas release",
-        "Exothermic reaction"
-      ],
-      "description_he": "ערבוב חומצות עם אקונומיקה (היפוכלוריט) משחרר גז כלור רעיל! ערבוב עם אמוניה משחרר כלוראמינים.",
-      "icon": "☠️",
-      "gases": [
-        "Cl₂ (כלור — רעיל)"
-      ]
-    },
-    {
-      "group1": "Acids",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות",
-        "שחרור גזים רעילים אפשרי"
-      ],
-      "hazards_en": [
-        "Variable reactions",
-        "Possible toxic gas release"
-      ],
-      "description_he": "חומצות עם ציאנידים משחררות גז HCN קטלני! חומצות עם פנולים — סיכון נמוך יותר.",
-      "icon": "⚠️",
-      "gases": [
-        "HCN (ציאן מימני — קטלני)"
-      ]
-    },
-    {
-      "group1": "Acids",
-      "group2": "Acids",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית בין חומצות שונות",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Possible reaction between different acids",
-        "Heat release"
-      ],
-      "description_he": "ערבוב חומצות מחמצנות (חנקתית, פרכלורית) עם חומצות אורגניות עלול לגרום לתגובה אלימה.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Acids",
-      "group2": "Water",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אקסותרמית",
-        "התזת חומר",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Exothermic reaction",
-        "Material splashing",
-        "Heat release"
-      ],
-      "description_he": "מהילת חומצות מרוכזות (במיוחד גופרתית) במים משחררת חום רב. תמיד להוסיף חומצה למים ולא להפך! סכנת רתיחה והתזה.",
-      "icon": "🔥",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Water Reactive",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה",
-        "שחרור גזים דליקים",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Violent reaction",
-        "Flammable gas release",
-        "Heat release"
-      ],
-      "description_he": "בסיסים מימיים מכילים מים — מתכות תגובתיות מגיבות עם המים בתגובה אלימה.",
-      "icon": "💥",
-      "gases": [
-        "H₂ (מימן — דליק)"
-      ]
-    },
-    {
-      "group1": "Bases",
-      "group2": "Oxidizers",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Possible reaction",
-        "Heat release"
-      ],
-      "description_he": "בסיסים חזקים עלולים להגיב עם מחמצנים מסוימים. יש לנהוג בזהירות.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Fuels",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "בדרך כלל אין תגובה מסוכנת בין בסיסים לדלקים.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Solvents",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית עם ממסים מסוימים"
-      ],
-      "hazards_en": [
-        "Possible reaction with certain solvents"
-      ],
-      "description_he": "בסיסים חזקים עלולים להגיב עם ממסים כלוריים (כלורופורם, DCM) וליצור תוצרים מסוכנים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "בסיסים סופגים גזים חומציים (HCl, SO₂). תגובה בטוחה יחסית אך אקסותרמית.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Household",
-      "level": "caution",
-      "hazards_he": [
-        "שחרור גזים רעילים אפשרי"
-      ],
-      "hazards_en": [
-        "Possible toxic gas release"
-      ],
-      "description_he": "אמוניה + אקונומיקה = כלוראמינים רעילים! שילוב מסוכן מאוד.",
-      "icon": "☠️",
-      "gases": [
-        "NH₂Cl (כלוראמין — רעיל)"
-      ]
-    },
-    {
-      "group1": "Bases",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "בסיסים חזקים עלולים להגיב עם איזוציאנטים ואפוקסידים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Bases",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "בדרך כלל אין תגובה מסוכנת בין בסיסים.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Bases",
-      "group2": "Water",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אקסותרמית",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Exothermic reaction",
-        "Heat release"
-      ],
-      "description_he": "המסת בסיסים חזקים (NaOH, KOH) במים משחררת חום רב. סיד חי (CaO) מגיב בחריפות עם מים — תגובה מאוד אקסותרמית!",
-      "icon": "🔥",
-      "gases": []
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Water Reactive",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית בין מתכות שונות"
-      ],
-      "hazards_en": [
-        "Possible reaction between different metals"
-      ],
-      "description_he": "מתכות תגובתיות שונות עלולות להגיב זו עם זו בטמפרטורה גבוהה.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Oxidizers",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה",
-        "סכנת התפוצצות",
-        "שריפה"
-      ],
-      "hazards_en": [
-        "Violent reaction",
-        "Explosion risk",
-        "Fire"
-      ],
-      "description_he": "מתכות תגובתיות עם מחמצנים — תגובה אלימה ביותר! סכנת שריפה והתפוצצות.",
-      "icon": "💥",
-      "gases": []
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Fuels",
-      "level": "caution",
-      "hazards_he": [
-        "סכנת הצתה"
-      ],
-      "hazards_en": [
-        "Ignition risk"
-      ],
-      "description_he": "מתכות תגובתיות שמתלקחות עלולות להצית דלקים בסביבתן.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Solvents",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה",
-        "שחרור גזים דליקים",
-        "שריפה"
-      ],
-      "hazards_en": [
-        "Violent reaction",
-        "Flammable gas release",
-        "Fire"
-      ],
-      "description_he": "ממסים רבים מכילים מים או קבוצות הידרוקסיל — מתכות תגובתיות מגיבות איתם בחריפות.",
-      "icon": "🔥",
-      "gases": [
-        "H₂ (מימן — דליק)"
-      ]
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "תלוי בגז — גזים לחים עלולים לגרום לתגובה עם מתכות תגובתיות למים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Household",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה עם מוצרים מימיים",
-        "שחרור גזים דליקים"
-      ],
-      "hazards_en": [
-        "Violent reaction with water-based products",
-        "Flammable gas release"
-      ],
-      "description_he": "מוצרי בית מימיים (אקונומיקה, חומצה מלחית) מכילים מים — תגובה אלימה עם מתכות תגובתיות.",
-      "icon": "💥",
-      "gases": [
-        "H₂ (מימן — דליק)"
-      ]
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "תלוי בחומר הספציפי — חלק מהחומרים התעשייתיים מכילים מים או קבוצות פעילות.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Water Reactive",
-      "group2": "Water",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה מאוד",
-        "שחרור גז מימן דליק",
-        "שחרור חום עצום",
-        "סכנת התפוצצות",
-        "סכנת שריפה"
-      ],
-      "hazards_en": [
-        "Very violent reaction",
-        "Flammable hydrogen gas release",
-        "Extreme heat release",
-        "Explosion risk",
-        "Fire risk"
-      ],
-      "description_he": "זהו השילוב המסוכן ביותר! נתרן/אשלגן/ליתיום במגע עם מים — תגובה אלימה מיידית עם שחרור גז מימן דליק שמתלקח. סידן קרביד + מים = גז אצטילן דליק. אלומיניום אבקתי + מים = מימן + חום עצום.",
-      "icon": "💥",
-      "gases": [
-        "H₂ (מימן — דליק מאוד)",
-        "C₂H₂ (אצטילן — דליק, מ-CaC₂)"
-      ]
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Oxidizers",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית בין מחמצנים שונים"
-      ],
-      "hazards_en": [
-        "Possible reaction between different oxidizers"
-      ],
-      "description_he": "מחמצנים חזקים עלולים להגיב עם מחמצנים חלשים יותר. יש לאחסן בנפרד.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Fuels",
-      "level": "incompatible",
-      "hazards_he": [
-        "סכנת שריפה חמורה",
-        "סכנת התפוצצות",
-        "תגובה אלימה"
-      ],
-      "hazards_en": [
-        "Severe fire risk",
-        "Explosion risk",
-        "Violent reaction"
-      ],
-      "description_he": "מחמצנים + דלקים = שילוב מסוכן ביותר! תגובה אקסותרמית חזקה, סכנת שריפה והתפוצצות.",
-      "icon": "💥",
-      "gases": []
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Solvents",
-      "level": "incompatible",
-      "hazards_he": [
-        "סכנת שריפה",
-        "תגובה אקסותרמית",
-        "סכנת התפוצצות"
-      ],
-      "hazards_en": [
-        "Fire risk",
-        "Exothermic reaction",
-        "Explosion risk"
-      ],
-      "description_he": "מחמצנים עם ממסים אורגניים (אצטון, אתנול) — סכנת שריפה והתפוצצות! שילוב אסור.",
-      "icon": "🔥",
-      "gases": []
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות",
-        "סכנת הצתה עם גזים דליקים"
-      ],
-      "hazards_en": [
-        "Variable reactions",
-        "Ignition risk with flammable gases"
-      ],
-      "description_he": "מחמצנים עם גזים דליקים (אצטילן, מימן) — סכנת הצתה. גזים אינרטיים — בטוח.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Household",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית",
-        "שחרור חום"
-      ],
-      "hazards_en": [
-        "Possible reaction",
-        "Heat release"
-      ],
-      "description_he": "מחמצנים חזקים עלולים להגיב עם חומרי ניקוי אורגניים. יש להפריד.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Industrial",
-      "level": "incompatible",
-      "hazards_he": [
-        "תגובה אלימה",
-        "סכנת שריפה והתפוצצות"
-      ],
-      "hazards_en": [
-        "Violent reaction",
-        "Fire and explosion risk"
-      ],
-      "description_he": "מחמצנים עם חומרים אורגניים תעשייתיים (סטירן, ויניל כלוריד) — סכנת שריפה והתפוצצות.",
-      "icon": "💥",
-      "gases": []
-    },
-    {
-      "group1": "Oxidizers",
-      "group2": "Water",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אקסותרמית אפשרית",
-        "שחרור גזים"
-      ],
-      "hazards_en": [
-        "Possible exothermic reaction",
-        "Gas release"
-      ],
-      "description_he": "חלק מהמחמצנים מגיבים עם מים: נתרן פרוקסיד + מים = תגובה אקסותרמית חזקה + שחרור חמצן. סידן היפוכלוריט במים משחרר חום.",
-      "icon": "⚠️",
-      "gases": [
-        "O₂ (חמצן — מעודד בעירה)"
-      ]
-    },
-    {
-      "group1": "Fuels",
-      "group2": "Fuels",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "דלקים עם דלקים — בדרך כלל מתערבבים ללא תגובה כימית מסוכנת.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Fuels",
-      "group2": "Solvents",
-      "level": "caution",
-      "hazards_he": [
-        "סכנת שריפה מוגברת"
-      ],
-      "hazards_en": [
-        "Increased fire risk"
-      ],
-      "description_he": "דלקים + ממסים דליקים = סכנת שריפה מוגברת. שניהם דליקים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Fuels",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "סכנת שריפה עם גזים דליקים"
-      ],
-      "hazards_en": [
-        "Fire risk with flammable gases"
-      ],
-      "description_he": "שילוב דלקים עם גזים דליקים מגביר סכנת שריפה. עם גזים רעילים — סכנה כפולה.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Fuels",
-      "group2": "Household",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "בדרך כלל אין תגובה כימית מסוכנת, אך שניהם עלולים להיות דליקים.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Fuels",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "סכנת שריפה עם חומרים מסוימים"
-      ],
-      "hazards_en": [
-        "Fire risk with certain materials"
-      ],
-      "description_he": "דלקים עם חומרים תעשייתיים — תלוי בחומר. יש לבדוק כל מקרה.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Fuels",
-      "group2": "Water",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "דלקים לא מגיבים כימית עם מים. הם לא מסיסים במים ונפרדים לשכבות. מים משמשים לכיבוי שריפות דלק (בתנאים מסוימים).",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Solvents",
-      "group2": "Solvents",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "ממסים עם ממסים — בדרך כלל מתערבבים ללא תגובה כימית.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Solvents",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "סכנת שריפה אפשרית"
-      ],
-      "hazards_en": [
-        "Possible fire risk"
-      ],
-      "description_he": "ממסים דליקים + גזים דליקים = סכנת שריפה מוגברת.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Solvents",
-      "group2": "Household",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית"
-      ],
-      "hazards_en": [
-        "Possible reaction"
-      ],
-      "description_he": "ממסים אורגניים עלולים לפגוע בפלסטיק ואריזות. סכנת שריפה עם ממסים דליקים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Solvents",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "ממסים עם חומרים תעשייתיים — תלוי בחומרים. איזוציאנטים מגיבים עם אלכוהולים.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Solvents",
-      "group2": "Water",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "רוב הממסים אינם מגיבים כימית עם מים. ממסים קוטביים (אתנול, אצטון) מסיסים במים. ממסים לא-קוטביים (טולואן, בנזן) נפרדים לשכבות.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Gases",
-      "group2": "Gases",
-      "level": "caution",
-      "hazards_he": [
-        "תגובה אפשרית בין גזים שונים"
-      ],
-      "hazards_en": [
-        "Possible reaction between different gases"
-      ],
-      "description_he": "גזים דליקים עם גזים מחמצנים (כלור + אמוניה) — תגובה מסוכנת! גזים אינרטיים — בטוח.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Gases",
-      "group2": "Household",
-      "level": "caution",
-      "hazards_he": [
-        "שחרור גזים רעילים אפשרי"
-      ],
-      "hazards_en": [
-        "Possible toxic gas release"
-      ],
-      "description_he": "כלור + אמוניה (בחומרי ניקוי) = כלוראמינים רעילים. זהירות עם גזים רעילים.",
-      "icon": "⚠️",
-      "gases": [
-        "NH₂Cl (כלוראמין — רעיל)"
-      ]
-    },
-    {
-      "group1": "Gases",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "תלוי בגז ובחומר התעשייתי. יש לבדוק כל שילוב.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Gases",
-      "group2": "Water",
-      "level": "caution",
-      "hazards_he": [
-        "גזים מסוימים מגיבים עם מים"
-      ],
-      "hazards_en": [
-        "Certain gases react with water"
-      ],
-      "description_he": "גזים חומציים (HCl, SO₂, Cl₂) נמסים במים ויוצרים תמיסות חומציות. פוסגן (COCl₂) מגיב עם מים ומשחרר HCl. גזים אינרטיים ודליקים — אינם מגיבים.",
-      "icon": "⚠️",
-      "gases": [
-        "HCl (חומצה מלחית)",
-        "H₂SO₃ (חומצה גופריתית)"
-      ]
-    },
-    {
-      "group1": "Household",
-      "group2": "Household",
-      "level": "caution",
-      "hazards_he": [
-        "שחרור גזים רעילים אפשרי"
-      ],
-      "hazards_en": [
-        "Possible toxic gas release"
-      ],
-      "description_he": "אקונומיקה + חומרי ניקוי עם אמוניה = כלוראמינים! אסור לערבב חומרי ניקוי.",
-      "icon": "☠️",
-      "gases": [
-        "Cl₂ (כלור — רעיל)",
-        "NH₂Cl (כלוראמין — רעיל)"
-      ]
-    },
-    {
-      "group1": "Household",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "תלוי בחומרים הספציפיים. אקונומיקה + ציאנידים — שחרור גז רעיל!",
-      "icon": "⚠️",
-      "gases": [
-        "HCN (ציאן מימני — קטלני)"
-      ]
-    },
-    {
-      "group1": "Household",
-      "group2": "Water",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "מוצרי בית מעוצבים לשימוש עם מים. מהילה במים בדרך כלל בטוחה ואף מפחיתה ריכוז וסכנה.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Industrial",
-      "group2": "Industrial",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות"
-      ],
-      "hazards_en": [
-        "Variable reactions"
-      ],
-      "description_he": "תלוי בחומרים הספציפיים. חומרים מסוימים תגובתיים זה עם זה.",
-      "icon": "⚠️",
-      "gases": []
-    },
-    {
-      "group1": "Industrial",
-      "group2": "Water",
-      "level": "caution",
-      "hazards_he": [
-        "תגובות משתנות בהתאם לחומר"
-      ],
-      "hazards_en": [
-        "Variable reactions depending on material"
-      ],
-      "description_he": "נתרן ציאניד + מים = שחרור HCN רעיל! איזוציאנטים (TDI) מגיבים עם מים בהתקף. אתילן אוקסיד מגיב עם מים. חומרים רבים אחרים אינם מגיבים.",
-      "icon": "⚠️",
-      "gases": [
-        "HCN (ציאן מימני — קטלני, מציאנידים)"
-      ]
-    },
-    {
-      "group1": "Water",
-      "group2": "Water",
-      "level": "compatible",
-      "hazards_he": [],
-      "hazards_en": [],
-      "description_he": "מים עם מים — אין תגובה כימית.",
-      "icon": "✅",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Pesticides",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "ערבוב חומרי הדברה שונים עלול ליצור תרכובות רעילות יותר"
-      ],
-      "hazards_en": [
-        "Mixing pesticides may create more toxic compounds"
-      ],
-      "description_he": "אין לערבב חומרי הדברה שונים ללא הנחיות יצרן — עלולים להיווצר תוצרים רעילים יותר.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Acids",
-      "level": "incompatible",
-      "icon": "🔴",
-      "hazards_he": [
-        "פירוק חומר ההדברה",
-        "שחרור גזים רעילים",
-        "סכנת הרעלה"
-      ],
-      "hazards_en": [
-        "Pesticide decomposition",
-        "Toxic gas release",
-        "Poisoning risk"
-      ],
-      "description_he": "חומצות חזקות מפרקות חומרי הדברה אורגנו-זרחניים ומשחררות גזים רעילים.",
-      "gases": [
-        "PH₃ (פוספין — קטלני)",
-        "H₂S (מימן גופרתי)"
-      ]
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Bases",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "הידרוליזה של חומר ההדברה",
-        "שינוי ב-pH"
-      ],
-      "hazards_en": [
-        "Pesticide hydrolysis",
-        "pH change"
-      ],
-      "description_he": "בסיסים חזקים גורמים לפירוק (הידרוליזה) של חומרי הדברה — עלולים להשתחרר תוצרים רעילים.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Oxidizers",
-      "level": "incompatible",
-      "icon": "🔴",
-      "hazards_he": [
-        "תגובה אקסותרמית",
-        "סכנת אש",
-        "שחרור גזים רעילים"
-      ],
-      "hazards_en": [
-        "Exothermic reaction",
-        "Fire hazard",
-        "Toxic gas release"
-      ],
-      "description_he": "מחמצנים עלולים לגרום להתלקחות של חומרי הדברה אורגניים ושחרור עשן רעיל.",
-      "gases": [
-        "SOx (תחמוצות גופרית)",
-        "NOx (תחמוצות חנקן)",
-        "POx (תחמוצות זרחן)"
-      ]
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Water",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "דליפה לסביבה",
-        "זיהום מקורות מים"
-      ],
-      "hazards_en": [
-        "Environmental contamination",
-        "Water source pollution"
-      ],
-      "description_he": "חומרי הדברה במגע עם מים עלולים לזהם מקורות מים. חלקם מתפרקים בנוכחות מים.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Water Reactive",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "תגובה לא צפויה",
-        "סכנת אש"
-      ],
-      "hazards_en": [
-        "Unpredictable reaction",
-        "Fire hazard"
-      ],
-      "description_he": "ערבוב חומרי הדברה עם חומרים תגובתיים למים עלול לגרום לתגובות לא צפויות.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Fuels",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "סכנת אש",
-        "עשן רעיל בשריפה"
-      ],
-      "hazards_en": [
-        "Fire hazard",
-        "Toxic smoke if burned"
-      ],
-      "description_he": "חומרי הדברה עם דלקים — סכנת אש. בשריפה עלול להשתחרר עשן רעיל במיוחד.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Solvents",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "המסה וספיגה מוגברת",
-        "סכנת אש"
-      ],
-      "hazards_en": [
-        "Enhanced absorption",
-        "Fire risk"
-      ],
-      "description_he": "ממסים ממיסים חומרי הדברה ומגבירים את חדירתם דרך העור — סכנת הרעלה.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Gases",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "תערובת רעילה",
-        "סכנת שאיפה"
-      ],
-      "hazards_en": [
-        "Toxic mixture",
-        "Inhalation hazard"
-      ],
-      "description_he": "ערבוב חומרי הדברה עם גזים רעילים מגביר משמעותית את סכנת ההרעלה.",
-      "gases": []
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Household",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "תגובה כימית",
-        "סכנת הרעלה"
-      ],
-      "hazards_en": [
-        "Chemical reaction",
-        "Poisoning risk"
-      ],
-      "description_he": "אין לערבב חומרי הדברה עם חומרי ניקוי ביתיים — עלולים להיווצר תרכובות רעילות.",
-      "gases": [
-        "Cl₂ (כלור — עם מוצרי כלור)"
-      ]
-    },
-    {
-      "group1": "Pesticides",
-      "group2": "Industrial",
-      "level": "caution",
-      "icon": "🟡",
-      "hazards_he": [
-        "תגובה לא צפויה",
-        "סכנת הרעלה"
-      ],
-      "hazards_en": [
-        "Unpredictable reaction",
-        "Poisoning risk"
-      ],
-      "description_he": "ערבוב חומרי הדברה עם חומרים תעשייתיים עלול ליצור תוצרים רעילים.",
-      "gases": []
-    }
-  ],
-  "version": "3.0",
-  "total_categories": 11,
-  "categories": [
-    "Acids",
-    "Bases",
-    "Water Reactive",
-    "Oxidizers",
-    "Fuels",
-    "Solvents",
-    "Gases",
-    "Household",
-    "Industrial",
-    "Water",
-    "Pesticides"
-  ]
-}
+  {
+    "name_he": "אשלגן (מתכת)",
+    "name_en": "Potassium metal",
+    "formula": "K",
+    "smiles": "[K]",
+    "cas": "7440-09-7",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "ליתיום (מתכת)",
+    "name_en": "Lithium metal",
+    "formula": "Li",
+    "smiles": "[Li]",
+    "cas": "7439-93-2",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "סידן קרביד",
+    "name_en": "Calcium carbide",
+    "formula": "CaC₂",
+    "smiles": "[Ca+2].[C-]#[C-]",
+    "cas": "75-20-7",
+    "hazards": [
+      "water_reactive",
+      "flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אלומיניום אבקתי",
+    "name_en": "Aluminum powder",
+    "formula": "Al",
+    "smiles": "[Al]",
+    "cas": "7429-90-5",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "מגנזיום (מתכת)",
+    "name_en": "Magnesium metal",
+    "formula": "Mg",
+    "smiles": "[Mg]",
+    "cas": "7439-95-4",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "נתרן הידריד",
+    "name_en": "Sodium hydride",
+    "formula": "NaH",
+    "smiles": "[NaH]",
+    "cas": "7646-69-7",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "זרחן לבן",
+    "name_en": "White phosphorus",
+    "formula": "P₄",
+    "smiles": "[P]([P]([P]1)[P]1)",
+    "cas": "12185-10-3",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "fatal",
+      "env_hazard"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "חומצה גופרתית",
+    "name_en": "Sulfuric acid",
+    "formula": "H₂SO₄",
+    "smiles": "OS(O)(=O)=O",
+    "cas": "7664-93-9",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה מלחית",
+    "name_en": "Hydrochloric acid",
+    "formula": "HCl",
+    "smiles": "Cl",
+    "cas": "7647-01-0",
+    "hazards": [
+      "corrosive",
+      "toxic_gas"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה חנקתית",
+    "name_en": "Nitric acid",
+    "formula": "HNO₃",
+    "smiles": "O[N+](=O)[O-]",
+    "cas": "7697-37-2",
+    "hazards": [
+      "corrosive",
+      "oxidizer"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה זרחתית",
+    "name_en": "Phosphoric acid",
+    "formula": "H₃PO₄",
+    "smiles": "OP(O)(O)=O",
+    "cas": "7664-38-2",
+    "hazards": [
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה פלואורימית",
+    "name_en": "Hydrofluoric acid",
+    "formula": "HF",
+    "smiles": "F",
+    "cas": "7664-39-3",
+    "hazards": [
+      "corrosive",
+      "highly_toxic",
+      "fatal"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה אצטית (חומץ מרוכז)",
+    "name_en": "Acetic acid",
+    "formula": "CH₃COOH",
+    "smiles": "CC(O)=O",
+    "cas": "64-19-7",
+    "hazards": [
+      "corrosive",
+      "flammable"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה כרומית",
+    "name_en": "Chromic acid",
+    "formula": "H₂CrO₄",
+    "smiles": "O[Cr](O)(=O)=O",
+    "cas": "7738-94-5",
+    "hazards": [
+      "corrosive",
+      "oxidizer",
+      "carcinogen"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה פרכלורית",
+    "name_en": "Perchloric acid",
+    "formula": "HClO₄",
+    "smiles": "OCl(=O)(=O)=O",
+    "cas": "7601-90-3",
+    "hazards": [
+      "corrosive",
+      "oxidizer",
+      "explosive"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה פורמית",
+    "name_en": "Formic acid",
+    "formula": "CH₂O₂",
+    "smiles": "OC=O",
+    "cas": "64-18-6",
+    "hazards": [
+      "corrosive",
+      "flammable"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה אוקסלית",
+    "name_en": "Oxalic acid",
+    "formula": "C₂H₂O₄",
+    "smiles": "OC(=O)C(O)=O",
+    "cas": "144-62-7",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "נתרן הידרוקסיד",
+    "name_en": "Sodium hydroxide",
+    "formula": "NaOH",
+    "smiles": "[Na]O",
+    "cas": "1310-73-2",
+    "hazards": [
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "אשלגן הידרוקסיד",
+    "name_en": "Potassium hydroxide",
+    "formula": "KOH",
+    "smiles": "[K]O",
+    "cas": "1310-58-3",
+    "hazards": [
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "אמוניה",
+    "name_en": "Ammonia",
+    "formula": "NH₃",
+    "smiles": "N",
+    "cas": "7664-41-7",
+    "hazards": [
+      "corrosive",
+      "toxic_gas",
+      "flammable"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "סידן הידרוקסיד",
+    "name_en": "Calcium hydroxide",
+    "formula": "Ca(OH)₂",
+    "smiles": "[Ca](O)O",
+    "cas": "1305-62-0",
+    "hazards": [
+      "irritant",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "סידן אוקסיד (סיד חי)",
+    "name_en": "Calcium oxide",
+    "formula": "CaO",
+    "smiles": "[Ca]=O",
+    "cas": "1305-78-8",
+    "hazards": [
+      "corrosive",
+      "water_reactive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "נתרן קרבונט (סודה לשתייה)",
+    "name_en": "Sodium carbonate",
+    "formula": "Na₂CO₃",
+    "smiles": "[Na+].[Na+].[O-]C([O-])=O",
+    "cas": "497-19-8",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "ליתיום הידרוקסיד",
+    "name_en": "Lithium hydroxide",
+    "formula": "LiOH",
+    "smiles": "[Li]O",
+    "cas": "1310-65-2",
+    "hazards": [
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "נתרן ביקרבונט (סודה לשתייה)",
+    "name_en": "Sodium bicarbonate",
+    "formula": "NaHCO₃",
+    "smiles": "[Na+].OC([O-])=O",
+    "cas": "144-55-8",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "בנזין",
+    "name_en": "Gasoline",
+    "formula": "C₈H₁₈",
+    "smiles": "CCCCCCCC",
+    "cas": "86290-81-5",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "סולר",
+    "name_en": "Diesel fuel",
+    "formula": "C₁₂H₂₆",
+    "smiles": "CCCCCCCCCCCC",
+    "cas": "68476-34-6",
+    "hazards": [
+      "flammable",
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "נפט (קרוסין)",
+    "name_en": "Kerosene",
+    "formula": "C₁₂H₂₆",
+    "smiles": "CCCCCCCCCCCC",
+    "cas": "8008-20-6",
+    "hazards": [
+      "flammable",
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "בוטאן (גז LPG)",
+    "name_en": "Butane",
+    "formula": "C₄H₁₀",
+    "smiles": "CCCC",
+    "cas": "106-97-8",
+    "hazards": [
+      "highly_flammable",
+      "compressed_gas"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "אתילן גליקול (נוגד קיפאון)",
+    "name_en": "Ethylene glycol",
+    "formula": "C₂H₆O₂",
+    "smiles": "OCCO",
+    "cas": "107-21-1",
+    "hazards": [
+      "toxic"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "שמן הידראולי",
+    "name_en": "Hydraulic oil",
+    "formula": "תערובת",
+    "smiles": "CCCCCCCCCCCCCCCCC",
+    "cas": "64742-54-7",
+    "hazards": [
+      "flammable",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "נפטא",
+    "name_en": "Naphtha",
+    "formula": "C₅-C₉",
+    "smiles": "CCCCCCC",
+    "cas": "8030-30-6",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "אתילן",
+    "name_en": "Ethylene",
+    "formula": "C₂H₄",
+    "smiles": "C=C",
+    "cas": "74-85-1",
+    "hazards": [
+      "highly_flammable",
+      "compressed_gas"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "אצטילן",
+    "name_en": "Acetylene",
+    "formula": "C₂H₂",
+    "smiles": "C#C",
+    "cas": "74-86-2",
+    "hazards": [
+      "highly_flammable",
+      "explosive",
+      "compressed_gas"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "ביודיזל (מתיל אסטר)",
+    "name_en": "Biodiesel (FAME)",
+    "formula": "C₁₉H₃₆O₂",
+    "smiles": "CCCCCCCCCCCCCCCCCC(=O)OC",
+    "cas": "67762-38-3",
+    "hazards": [
+      "flammable",
+      "irritant"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "כלור",
+    "name_en": "Chlorine",
+    "formula": "Cl₂",
+    "smiles": "ClCl",
+    "cas": "7782-50-5",
+    "hazards": [
+      "toxic_gas",
+      "corrosive",
+      "oxidizer"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פוספגן",
+    "name_en": "Phosgene",
+    "formula": "COCl₂",
+    "smiles": "ClC(Cl)=O",
+    "cas": "75-44-5",
+    "hazards": [
+      "fatal",
+      "toxic_gas",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "מימן גופרי",
+    "name_en": "Hydrogen sulfide",
+    "formula": "H₂S",
+    "smiles": "S",
+    "cas": "7783-06-4",
+    "hazards": [
+      "highly_flammable",
+      "fatal",
+      "toxic_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פחמן חד-חמצני",
+    "name_en": "Carbon monoxide",
+    "formula": "CO",
+    "smiles": "[C-]#[O+]",
+    "cas": "630-08-0",
+    "hazards": [
+      "flammable",
+      "fatal",
+      "toxic_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "ציאניד מימן",
+    "name_en": "Hydrogen cyanide",
+    "formula": "HCN",
+    "smiles": "C#N",
+    "cas": "74-90-8",
+    "hazards": [
+      "highly_flammable",
+      "fatal",
+      "toxic_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פחמן דו-חמצני",
+    "name_en": "Carbon dioxide",
+    "formula": "CO₂",
+    "smiles": "O=C=O",
+    "cas": "124-38-9",
+    "hazards": [
+      "compressed_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "גז טבעי (מתאן)",
+    "name_en": "Methane",
+    "formula": "CH₄",
+    "smiles": "C",
+    "cas": "74-82-8",
+    "hazards": [
+      "highly_flammable",
+      "compressed_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פרופאן",
+    "name_en": "Propane",
+    "formula": "C₃H₈",
+    "smiles": "CCC",
+    "cas": "74-98-6",
+    "hazards": [
+      "highly_flammable",
+      "compressed_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "גופרית דו-חמצנית",
+    "name_en": "Sulfur dioxide",
+    "formula": "SO₂",
+    "smiles": "O=S=O",
+    "cas": "7446-09-5",
+    "hazards": [
+      "toxic_gas",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "חנקן דו-חמצני",
+    "name_en": "Nitrogen dioxide",
+    "formula": "NO₂",
+    "smiles": "[O-][N+]=O",
+    "cas": "10102-44-0",
+    "hazards": [
+      "toxic_gas",
+      "oxidizer",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "נתרן היפוכלוריט (אקונומיקה)",
+    "name_en": "Sodium hypochlorite",
+    "formula": "NaClO",
+    "smiles": "[Na+].[O-]Cl",
+    "cas": "7681-52-9",
+    "hazards": [
+      "corrosive",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "נתרן לאוריל סולפט (סבון)",
+    "name_en": "Sodium lauryl sulfate",
+    "formula": "C₁₂H₂₅NaO₄S",
+    "smiles": "CCCCCCCCCCCCOS(=O)(=O)[O-].[Na+]",
+    "cas": "151-21-3",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "נתרן פרבורט (אבקת כביסה)",
+    "name_en": "Sodium perborate",
+    "formula": "NaBO₃",
+    "smiles": "[Na+].[B]([O-])(O)OO",
+    "cas": "7632-04-4",
+    "hazards": [
+      "oxidizer",
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "חומצה לימונית",
+    "name_en": "Citric acid",
+    "formula": "C₆H₈O₇",
+    "smiles": "OC(CC(O)=O)(CC(O)=O)C(O)=O",
+    "cas": "77-92-9",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "איזופרופנול (חומר חיטוי)",
+    "name_en": "Isopropyl alcohol (disinfectant)",
+    "formula": "C₃H₈O",
+    "smiles": "CC(C)O",
+    "cas": "67-63-0",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "נתרן דיכלורואיזוציאנורט (טבליות כלור)",
+    "name_en": "Sodium dichloroisocyanurate",
+    "formula": "C₃Cl₂N₃NaO₃",
+    "smiles": "[Na+].O=c1[nH]c(=O)n(Cl)c(=O)n1Cl",
+    "cas": "2893-78-9",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "נתרן מטא-סיליקט (חומר ניקוי תעשייתי)",
+    "name_en": "Sodium metasilicate",
+    "formula": "Na₂SiO₃",
+    "smiles": "[Na+].[Na+].[O-][Si]([O-])=O",
+    "cas": "6834-92-0",
+    "hazards": [
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "אתנולאמין (חומר ניקוי רב שימושי)",
+    "name_en": "Ethanolamine",
+    "formula": "C₂H₇NO",
+    "smiles": "NCCO",
+    "cas": "141-43-5",
+    "hazards": [
+      "corrosive",
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "חומרים ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "פורמלדהיד",
+    "name_en": "Formaldehyde",
+    "formula": "CH₂O",
+    "smiles": "C=O",
+    "cas": "50-00-0",
+    "hazards": [
+      "flammable",
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "טולואן דיאיזוציאנט (TDI)",
+    "name_en": "Toluene diisocyanate",
+    "formula": "C₉H₆N₂O₂",
+    "smiles": "Cc1ccc(N=C=O)cc1N=C=O",
+    "cas": "584-84-9",
+    "hazards": [
+      "toxic",
+      "irritant",
+      "carcinogen"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "סטירן",
+    "name_en": "Styrene",
+    "formula": "C₈H₈",
+    "smiles": "C=Cc1ccccc1",
+    "cas": "100-42-5",
+    "hazards": [
+      "flammable",
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ויניל כלוריד",
+    "name_en": "Vinyl chloride",
+    "formula": "C₂H₃Cl",
+    "smiles": "C=CCl",
+    "cas": "75-01-4",
+    "hazards": [
+      "highly_flammable",
+      "carcinogen",
+      "compressed_gas"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אקרילוניטריל",
+    "name_en": "Acrylonitrile",
+    "formula": "C₃H₃N",
+    "smiles": "C=CC#N",
+    "cas": "107-13-1",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אתילן אוקסיד",
+    "name_en": "Ethylene oxide",
+    "formula": "C₂H₄O",
+    "smiles": "C1CO1",
+    "cas": "75-21-8",
+    "hazards": [
+      "highly_flammable",
+      "carcinogen",
+      "toxic",
+      "explosive"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורופורם",
+    "name_en": "Chloroform",
+    "formula": "CHCl₃",
+    "smiles": "ClC(Cl)Cl",
+    "cas": "67-66-3",
+    "hazards": [
+      "toxic",
+      "carcinogen",
+      "irritant"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "דיכלורומתאן",
+    "name_en": "Dichloromethane",
+    "formula": "CH₂Cl₂",
+    "smiles": "ClCCl",
+    "cas": "75-09-2",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "נתרן ציאניד",
+    "name_en": "Sodium cyanide",
+    "formula": "NaCN",
+    "smiles": "[Na+].[C-]#N",
+    "cas": "143-33-9",
+    "hazards": [
+      "fatal",
+      "env_hazard",
+      "water_reactive"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "פנול",
+    "name_en": "Phenol",
+    "formula": "C₆H₅OH",
+    "smiles": "Oc1ccccc1",
+    "cas": "108-95-2",
+    "hazards": [
+      "toxic",
+      "corrosive",
+      "flammable"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אניליו",
+    "name_en": "Aniline",
+    "formula": "C₆H₇N",
+    "smiles": "Nc1ccccc1",
+    "cas": "62-53-3",
+    "hazards": [
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "חומצה ציאנורית",
+    "name_en": "Cyanuric acid",
+    "formula": "C₃H₃N₃O₃",
+    "smiles": "O=c1[nH]c(=O)[nH]c(=O)[nH]1",
+    "cas": "108-80-5",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "חומרים תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "מי חמצן",
+    "name_en": "Hydrogen peroxide",
+    "formula": "H₂O₂",
+    "smiles": "OO",
+    "cas": "7722-84-1",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אשלגן פרמנגנט",
+    "name_en": "Potassium permanganate",
+    "formula": "KMnO₄",
+    "smiles": "[K+].[O-][Mn](=O)(=O)=O",
+    "cas": "7722-64-7",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "נתרן כלורט",
+    "name_en": "Sodium chlorate",
+    "formula": "NaClO₃",
+    "smiles": "[Na+].[O-]Cl(=O)=O",
+    "cas": "7775-09-9",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אמוניום ניטרט",
+    "name_en": "Ammonium nitrate",
+    "formula": "NH₄NO₃",
+    "smiles": "[NH4+].[O-][N+]([O-])=O",
+    "cas": "6484-52-2",
+    "hazards": [
+      "oxidizer",
+      "explosive"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "נתרן פרוקסיד",
+    "name_en": "Sodium peroxide",
+    "formula": "Na₂O₂",
+    "smiles": "[Na+].[Na+].[O-][O-]",
+    "cas": "1313-60-6",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "water_reactive"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אשלגן ניטרט",
+    "name_en": "Potassium nitrate",
+    "formula": "KNO₃",
+    "smiles": "[K+].[O-][N+]([O-])=O",
+    "cas": "7757-79-1",
+    "hazards": [
+      "oxidizer"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "נתרן פרכלורט",
+    "name_en": "Sodium perchlorate",
+    "formula": "NaClO₄",
+    "smiles": "[Na+].[O-]Cl(=O)(=O)=O",
+    "cas": "7601-89-0",
+    "hazards": [
+      "oxidizer",
+      "irritant"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "סידן היפוכלוריט",
+    "name_en": "Calcium hypochlorite",
+    "formula": "Ca(ClO)₂",
+    "smiles": "[Ca+2].[O-]Cl.[O-]Cl",
+    "cas": "7778-54-3",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אצטון",
+    "name_en": "Acetone",
+    "formula": "C₃H₆O",
+    "smiles": "CC(C)=O",
+    "cas": "67-64-1",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "מתנול",
+    "name_en": "Methanol",
+    "formula": "CH₃OH",
+    "smiles": "CO",
+    "cas": "67-56-1",
+    "hazards": [
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "אתנול",
+    "name_en": "Ethanol",
+    "formula": "C₂H₅OH",
+    "smiles": "CCO",
+    "cas": "64-17-5",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "טולואן",
+    "name_en": "Toluene",
+    "formula": "C₇H₈",
+    "smiles": "Cc1ccccc1",
+    "cas": "108-88-3",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "בנזן",
+    "name_en": "Benzene",
+    "formula": "C₆H₆",
+    "smiles": "c1ccccc1",
+    "cas": "71-43-2",
+    "hazards": [
+      "highly_flammable",
+      "carcinogen",
+      "toxic"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "קסילן",
+    "name_en": "Xylene",
+    "formula": "C₈H₁₀",
+    "smiles": "Cc1ccccc1C",
+    "cas": "1330-20-7",
+    "hazards": [
+      "flammable",
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "אתר דיאתילי",
+    "name_en": "Diethyl ether",
+    "formula": "C₄H₁₀O",
+    "smiles": "CCOCC",
+    "cas": "60-29-7",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "אצטאלדהיד",
+    "name_en": "Acetaldehyde",
+    "formula": "C₂H₄O",
+    "smiles": "CC=O",
+    "cas": "75-07-0",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "טרפנטין",
+    "name_en": "Turpentine",
+    "formula": "C₁₀H₁₆",
+    "smiles": "CC1=CCC(CC1)C(C)=C",
+    "cas": "8006-64-2",
+    "hazards": [
+      "flammable",
+      "toxic",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "מים",
+    "name_en": "Water",
+    "formula": "H₂O",
+    "smiles": "O",
+    "cas": "7732-18-5",
+    "hazards": [],
+    "category_he": "מים",
+    "category_en": "Water"
+  },
+  {
+    "name_he": "תיוניל כלוריד",
+    "name_en": "Thionyl chloride",
+    "formula": "SOCl₂",
+    "smiles": "O=S(Cl)Cl",
+    "cas": "7719-09-7",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "זרחן טריכלוריד",
+    "name_en": "Phosphorus trichloride",
+    "formula": "PCl₃",
+    "smiles": "ClP(Cl)Cl",
+    "cas": "7719-12-2",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "זרחן פנטכלוריד",
+    "name_en": "Phosphorus pentachloride",
+    "formula": "PCl₅",
+    "smiles": "ClP(Cl)(Cl)(Cl)Cl",
+    "cas": "10026-13-8",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אצטיל כלוריד",
+    "name_en": "Acetyl chloride",
+    "formula": "CH₃COCl",
+    "smiles": "CC(=O)Cl",
+    "cas": "75-36-5",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "כלורוסולפונית חומצה",
+    "name_en": "Chlorosulfonic acid",
+    "formula": "ClSO₃H",
+    "smiles": "OS(=O)(=O)Cl",
+    "cas": "7790-94-5",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "סיליקון טטרכלוריד",
+    "name_en": "Silicon tetrachloride",
+    "formula": "SiCl₄",
+    "smiles": "Cl[Si](Cl)(Cl)Cl",
+    "cas": "10026-04-7",
+    "hazards": [
+      "water_reactive",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "טיטניום טטרכלוריד",
+    "name_en": "Titanium tetrachloride",
+    "formula": "TiCl₄",
+    "smiles": "Cl[Ti](Cl)(Cl)Cl",
+    "cas": "7550-45-0",
+    "hazards": [
+      "water_reactive",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "בורון טריפלואוריד",
+    "name_en": "Boron trifluoride",
+    "formula": "BF₃",
+    "smiles": "FB(F)F",
+    "cas": "7637-07-2",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אלומיניום כלוריד",
+    "name_en": "Aluminum chloride",
+    "formula": "AlCl₃",
+    "smiles": "Cl[Al](Cl)Cl",
+    "cas": "7446-70-0",
+    "hazards": [
+      "water_reactive",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "נתרן מתכת (פרוסות)",
+    "name_en": "Sodium amide",
+    "formula": "NaNH₂",
+    "smiles": "[Na]N",
+    "cas": "7782-92-5",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "corrosive"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "סידן מתכת",
+    "name_en": "Calcium metal",
+    "formula": "Ca",
+    "smiles": "[Ca]",
+    "cas": "7440-70-2",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "בריום מתכת",
+    "name_en": "Barium metal",
+    "formula": "Ba",
+    "smiles": "[Ba]",
+    "cas": "7440-39-3",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אולאום (חומצה גופרתית מעשנת)",
+    "name_en": "Oleum (fuming sulfuric acid)",
+    "formula": "H₂S₂O₇",
+    "smiles": "O=S(=O)(O)OS(=O)(=O)O",
+    "cas": "8014-95-7",
+    "hazards": [
+      "water_reactive",
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "אשלגן מתכת (פיסות)",
+    "name_en": "Potassium hydride",
+    "formula": "KH",
+    "smiles": "[KH]",
+    "cas": "7693-26-7",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "ליתיום אלומיניום הידריד",
+    "name_en": "Lithium aluminum hydride",
+    "formula": "LiAlH₄",
+    "smiles": "[Li+].[AlH4-]",
+    "cas": "16853-85-3",
+    "hazards": [
+      "water_reactive",
+      "highly_flammable"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  },
+  {
+    "name_he": "פלואור",
+    "name_en": "Fluorine",
+    "formula": "F₂",
+    "smiles": "FF",
+    "cas": "7782-41-4",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "ברום",
+    "name_en": "Bromine",
+    "formula": "Br₂",
+    "smiles": "BrBr",
+    "cas": "7726-95-6",
+    "hazards": [
+      "toxic",
+      "corrosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "חנקן דו חמצני",
+    "name_en": "Nitric oxide",
+    "formula": "NO",
+    "smiles": "[N]=O",
+    "cas": "10102-43-9",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "compressed_gas"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "אוזון",
+    "name_en": "Ozone",
+    "formula": "O₃",
+    "smiles": "[O-][O+]=O",
+    "cas": "10028-15-6",
+    "hazards": [
+      "toxic",
+      "oxidizer"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פוספין",
+    "name_en": "Phosphine",
+    "formula": "PH₃",
+    "smiles": "P",
+    "cas": "7803-51-2",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "ארסין",
+    "name_en": "Arsine",
+    "formula": "AsH₃",
+    "smiles": "[AsH3]",
+    "cas": "7784-42-1",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "כלור דו חמצני",
+    "name_en": "Chlorine dioxide",
+    "formula": "ClO₂",
+    "smiles": "[O]Cl=O",
+    "cas": "10049-04-4",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "explosive"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "מתיל ברומיד",
+    "name_en": "Methyl bromide",
+    "formula": "CH₃Br",
+    "smiles": "CBr",
+    "cas": "74-83-9",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "בוטדיאן",
+    "name_en": "Butadiene",
+    "formula": "C₄H₆",
+    "smiles": "C=CC=C",
+    "cas": "106-99-0",
+    "hazards": [
+      "highly_flammable",
+      "carcinogen"
+    ],
+    "category_he": "גזים",
+    "category_en": "Gases"
+  },
+  {
+    "name_he": "פאראתיון",
+    "name_en": "Parathion",
+    "formula": "C₁₀H₁₄NO₅PS",
+    "smiles": "CCOP(=S)(OCC)Oc1ccc([N+](=O)[O-])cc1",
+    "cas": "56-38-2",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "מלתיון",
+    "name_en": "Malathion",
+    "formula": "C₁₀H₁₉O₆PS₂",
+    "smiles": "CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC",
+    "cas": "121-75-5",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "כלורפיריפוס",
+    "name_en": "Chlorpyrifos",
+    "formula": "C₉H₁₁Cl₃NO₃PS",
+    "smiles": "CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl",
+    "cas": "2921-88-2",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "גליפוסאט",
+    "name_en": "Glyphosate",
+    "formula": "C₃H₈NO₅P",
+    "smiles": "OC(=O)CNCP(O)(O)=O",
+    "cas": "1071-83-6",
+    "hazards": [
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "דיכלורווס (DDVP)",
+    "name_en": "Dichlorvos (DDVP)",
+    "formula": "C₄H₇Cl₂O₄P",
+    "smiles": "COP(=O)(OC)OC=C(Cl)Cl",
+    "cas": "62-73-7",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "אנדוסולפן",
+    "name_en": "Endosulfan",
+    "formula": "C₉H₆Cl₆O₃S",
+    "smiles": "ClC1=C(Cl)C2(Cl)C3CC(OS(=O)O3)C1(Cl)C2(Cl)Cl",
+    "cas": "115-29-7",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "DDT",
+    "name_en": "DDT",
+    "formula": "C₁₄H₉Cl₅",
+    "smiles": "ClC(Cl)(Cl)C(c1ccc(Cl)cc1)c1ccc(Cl)cc1",
+    "cas": "50-29-3",
+    "hazards": [
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "דיאזינון",
+    "name_en": "Diazinon",
+    "formula": "C₁₂H₂₁N₂O₃PS",
+    "smiles": "CCOP(=S)(OCC)Oc1cc(C)nc(C(C)C)n1",
+    "cas": "333-41-5",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "ציפרמתרין",
+    "name_en": "Cypermethrin",
+    "formula": "C₂₂H₁₉Cl₂NO₃",
+    "smiles": "CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)c1cccc(Oc2ccccc2)c1",
+    "cas": "52315-07-8",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "2,4-D",
+    "name_en": "2,4-Dichlorophenoxyacetic acid",
+    "formula": "C₈H₆Cl₂O₃",
+    "smiles": "OC(=O)COc1ccc(Cl)cc1Cl",
+    "cas": "94-75-7",
+    "hazards": [
+      "toxic",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "קרברל (סווין)",
+    "name_en": "Carbaryl (Sevin)",
+    "formula": "C₁₂H₁₁NO₂",
+    "smiles": "CNC(=O)Oc1cccc2ccccc12",
+    "cas": "63-25-2",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "אימידקלופריד",
+    "name_en": "Imidacloprid",
+    "formula": "C₉H₁₀ClN₅O₂",
+    "smiles": "O=[N+]([O-])NC1=NCCN1Cc1ccc(Cl)nc1",
+    "cas": "138261-41-3",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "חומרי הדברה",
+    "category_en": "Pesticides"
+  },
+  {
+    "name_he": "חומצה הידרובורמית",
+    "name_en": "Hydrobromic acid",
+    "formula": "HBr",
+    "smiles": "Br",
+    "cas": "10035-10-6",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה הידרויודית",
+    "name_en": "Hydroiodic acid",
+    "formula": "HI",
+    "smiles": "I",
+    "cas": "10034-85-2",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה גופרתנית",
+    "name_en": "Sulfurous acid",
+    "formula": "H₂SO₃",
+    "smiles": "OS(O)=O",
+    "cas": "7782-99-2",
+    "hazards": [
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה כלורית",
+    "name_en": "Chloric acid",
+    "formula": "HClO₃",
+    "smiles": "OCl(=O)=O",
+    "cas": "7790-93-4",
+    "hazards": [
+      "corrosive",
+      "oxidizer"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה טטרפלואורובורית",
+    "name_en": "Fluoroboric acid",
+    "formula": "HBF₄",
+    "smiles": "F[B-](F)(F)F",
+    "cas": "16872-11-0",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "חומצה טריכלורואצטית",
+    "name_en": "Trichloroacetic acid",
+    "formula": "C₂HCl₃O₂",
+    "smiles": "OC(=O)C(Cl)(Cl)Cl",
+    "cas": "76-03-9",
+    "hazards": [
+      "corrosive",
+      "env_hazard"
+    ],
+    "category_he": "חומצות",
+    "category_en": "Acids"
+  },
+  {
+    "name_he": "הידרזין",
+    "name_en": "Hydrazine",
+    "formula": "N₂H₄",
+    "smiles": "NN",
+    "cas": "302-01-2",
+    "hazards": [
+      "toxic",
+      "flammable",
+      "carcinogen",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "נתרן מתילט",
+    "name_en": "Sodium methoxide",
+    "formula": "CH₃ONa",
+    "smiles": "CO[Na]",
+    "cas": "124-41-4",
+    "hazards": [
+      "water_reactive",
+      "flammable",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "אשלגן טרט-בוטוקסיד",
+    "name_en": "Potassium tert-butoxide",
+    "formula": "C₄H₉KO",
+    "smiles": "CC(C)(C)O[K]",
+    "cas": "865-47-4",
+    "hazards": [
+      "water_reactive",
+      "flammable",
+      "corrosive"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "בריום הידרוקסיד",
+    "name_en": "Barium hydroxide",
+    "formula": "Ba(OH)₂",
+    "smiles": "[Ba+2].[OH-].[OH-]",
+    "cas": "17194-00-2",
+    "hazards": [
+      "corrosive",
+      "toxic"
+    ],
+    "category_he": "בסיסים",
+    "category_en": "Bases"
+  },
+  {
+    "name_he": "חומצה על-אוקטית",
+    "name_en": "Peracetic acid",
+    "formula": "C₂H₄O₃",
+    "smiles": "CC(=O)OO",
+    "cas": "79-21-0",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "flammable"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אשלגן דיכרומט",
+    "name_en": "Potassium dichromate",
+    "formula": "K₂Cr₂O₇",
+    "smiles": "[K+].[K+].[O-][Cr](=O)(=O)O[Cr]([O-])(=O)=O",
+    "cas": "7778-50-9",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "חנקת כסף",
+    "name_en": "Silver nitrate",
+    "formula": "AgNO₃",
+    "smiles": "[Ag+].[O-][N+](=O)=O",
+    "cas": "7761-88-8",
+    "hazards": [
+      "oxidizer",
+      "corrosive",
+      "env_hazard"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "ברומט אשלגן",
+    "name_en": "Potassium bromate",
+    "formula": "KBrO₃",
+    "smiles": "[K+].[O-]Br(=O)=O",
+    "cas": "7758-01-2",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "נתרן ניטריט",
+    "name_en": "Sodium nitrite",
+    "formula": "NaNO₂",
+    "smiles": "[Na+].[O-]N=O",
+    "cas": "7632-00-0",
+    "hazards": [
+      "oxidizer",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "אמוניום פרכלורט",
+    "name_en": "Ammonium perchlorate",
+    "formula": "NH₄ClO₄",
+    "smiles": "[NH4+].[O-]Cl(=O)(=O)=O",
+    "cas": "7790-98-9",
+    "hazards": [
+      "oxidizer",
+      "explosive"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "כרומיום טריאוקסיד",
+    "name_en": "Chromium trioxide",
+    "formula": "CrO₃",
+    "smiles": "O=[Cr](=O)=O",
+    "cas": "1333-82-0",
+    "hazards": [
+      "oxidizer",
+      "toxic",
+      "carcinogen",
+      "corrosive"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "מתיל איזוציאנט (MIC)",
+    "name_en": "Methyl isocyanate (MIC)",
+    "formula": "C₂H₃NO",
+    "smiles": "CN=C=O",
+    "cas": "624-83-9",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אקרולאין",
+    "name_en": "Acrolein",
+    "formula": "C₃H₄O",
+    "smiles": "C=CC=O",
+    "cas": "107-02-8",
+    "hazards": [
+      "highly_toxic",
+      "highly_flammable"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ברומואצטון",
+    "name_en": "Bromoacetone",
+    "formula": "C₃H₅BrO",
+    "smiles": "CC(=O)CBr",
+    "cas": "598-31-2",
+    "hazards": [
+      "toxic",
+      "irritant"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורואצטון",
+    "name_en": "Chloroacetone",
+    "formula": "C₃H₅ClO",
+    "smiles": "CC(=O)CCl",
+    "cas": "78-95-5",
+    "hazards": [
+      "toxic",
+      "irritant",
+      "flammable"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אתילן דיאמין",
+    "name_en": "Ethylenediamine",
+    "formula": "C₂H₈N₂",
+    "smiles": "NCCN",
+    "cas": "107-15-3",
+    "hazards": [
+      "corrosive",
+      "flammable",
+      "toxic"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "דימתיל סולפט",
+    "name_en": "Dimethyl sulfate",
+    "formula": "C₂H₆O₄S",
+    "smiles": "COS(=O)(=O)OC",
+    "cas": "77-78-1",
+    "hazards": [
+      "highly_toxic",
+      "carcinogen",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורואצטלדהיד",
+    "name_en": "Chloroacetaldehyde",
+    "formula": "C₂H₃ClO",
+    "smiles": "O=CCCl",
+    "cas": "107-20-0",
+    "hazards": [
+      "toxic",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "מתיל כלורופורמיאט",
+    "name_en": "Methyl chloroformate",
+    "formula": "C₂H₃ClO₂",
+    "smiles": "COC(=O)Cl",
+    "cas": "79-22-1",
+    "hazards": [
+      "toxic",
+      "flammable",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אפיכלורוהידרין",
+    "name_en": "Epichlorohydrin",
+    "formula": "C₃H₅ClO",
+    "smiles": "ClCC1CO1",
+    "cas": "106-89-8",
+    "hazards": [
+      "toxic",
+      "flammable",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "קרבון דיסולפיד",
+    "name_en": "Carbon disulfide",
+    "formula": "CS₂",
+    "smiles": "S=C=S",
+    "cas": "75-15-0",
+    "hazards": [
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ניטרובנזן",
+    "name_en": "Nitrobenzene",
+    "formula": "C₆H₅NO₂",
+    "smiles": "c1ccc([N+](=O)[O-])cc1",
+    "cas": "98-95-3",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כרומיל כלוריד",
+    "name_en": "Chromyl chloride",
+    "formula": "CrO₂Cl₂",
+    "smiles": "O=[Cr](=O)(Cl)Cl",
+    "cas": "14977-61-8",
+    "hazards": [
+      "toxic",
+      "oxidizer",
+      "corrosive",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "בנזויל כלוריד",
+    "name_en": "Benzoyl chloride",
+    "formula": "C₇H₅ClO",
+    "smiles": "O=C(Cl)c1ccccc1",
+    "cas": "98-88-4",
+    "hazards": [
+      "corrosive",
+      "toxic",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "תלת כלוריד זרחן",
+    "name_en": "Phosphorus oxychloride",
+    "formula": "POCl₃",
+    "smiles": "O=P(Cl)(Cl)Cl",
+    "cas": "10025-87-3",
+    "hazards": [
+      "toxic",
+      "corrosive",
+      "water_reactive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אקרילאמיד",
+    "name_en": "Acrylamide",
+    "formula": "C₃H₅NO",
+    "smiles": "C=CC(=O)N",
+    "cas": "79-06-1",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "מתנול (תעשייתי)",
+    "name_en": "Methyl mercaptan",
+    "formula": "CH₄S",
+    "smiles": "CS",
+    "cas": "74-93-1",
+    "hazards": [
+      "highly_flammable",
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "דימתיל פורמאמיד (DMF)",
+    "name_en": "Dimethylformamide (DMF)",
+    "formula": "C₃H₇NO",
+    "smiles": "CN(C)C=O",
+    "cas": "68-12-2",
+    "hazards": [
+      "toxic",
+      "flammable"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "בנזידין",
+    "name_en": "Benzidine",
+    "formula": "C₁₂H₁₂N₂",
+    "smiles": "Nc1ccc(-c2ccc(N)cc2)cc1",
+    "cas": "92-87-5",
+    "hazards": [
+      "carcinogen",
+      "toxic"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "תרכלורואתילן (PCE)",
+    "name_en": "Tetrachloroethylene (PCE)",
+    "formula": "C₂Cl₄",
+    "smiles": "ClC(Cl)=C(Cl)Cl",
+    "cas": "127-18-4",
+    "hazards": [
+      "toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "טריכלורואתילן (TCE)",
+    "name_en": "Trichloroethylene (TCE)",
+    "formula": "C₂HCl₃",
+    "smiles": "ClC=C(Cl)Cl",
+    "cas": "79-01-6",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "1,4-דיוקסן",
+    "name_en": "1,4-Dioxane",
+    "formula": "C₄H₈O₂",
+    "smiles": "C1COCCO1",
+    "cas": "123-91-1",
+    "hazards": [
+      "flammable",
+      "carcinogen"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "מתיל אתיל קטון (MEK)",
+    "name_en": "Methyl ethyl ketone (MEK)",
+    "formula": "C₄H₈O",
+    "smiles": "CCC(=O)C",
+    "cas": "78-93-3",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "טטרהידרופוראן (THF)",
+    "name_en": "Tetrahydrofuran (THF)",
+    "formula": "C₄H₈O",
+    "smiles": "C1CCOC1",
+    "cas": "109-99-9",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "דימתיל סולפוקסיד (DMSO)",
+    "name_en": "Dimethyl sulfoxide (DMSO)",
+    "formula": "C₂H₆OS",
+    "smiles": "CS(=O)C",
+    "cas": "67-68-5",
+    "hazards": [
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "אתיל אצטט",
+    "name_en": "Ethyl acetate",
+    "formula": "C₄H₈O₂",
+    "smiles": "CCOC(=O)C",
+    "cas": "141-78-6",
+    "hazards": [
+      "highly_flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "ציקלוהקסנון",
+    "name_en": "Cyclohexanone",
+    "formula": "C₆H₁₀O",
+    "smiles": "O=C1CCCCC1",
+    "cas": "108-94-1",
+    "hazards": [
+      "flammable",
+      "irritant"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "n-הקסן",
+    "name_en": "n-Hexane",
+    "formula": "C₆H₁₄",
+    "smiles": "CCCCCC",
+    "cas": "110-54-3",
+    "hazards": [
+      "highly_flammable",
+      "toxic"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "כלורו-בנזן",
+    "name_en": "Chlorobenzene",
+    "formula": "C₆H₅Cl",
+    "smiles": "Clc1ccccc1",
+    "cas": "108-90-7",
+    "hazards": [
+      "flammable",
+      "irritant",
+      "env_hazard"
+    ],
+    "category_he": "ממסים",
+    "category_en": "Solvents"
+  },
+  {
+    "name_he": "איזואוקטן",
+    "name_en": "Isooctane",
+    "formula": "C₈H₁₈",
+    "smiles": "CC(C)CC(C)(C)C",
+    "cas": "540-84-1",
+    "hazards": [
+      "highly_flammable"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "פרופילן",
+    "name_en": "Propylene",
+    "formula": "C₃H₆",
+    "smiles": "CC=C",
+    "cas": "115-07-1",
+    "hazards": [
+      "highly_flammable",
+      "compressed_gas"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "מתיל טרט-בוטיל אתר (MTBE)",
+    "name_en": "MTBE",
+    "formula": "C₅H₁₂O",
+    "smiles": "COC(C)(C)C",
+    "cas": "1634-04-4",
+    "hazards": [
+      "highly_flammable",
+      "env_hazard"
+    ],
+    "category_he": "דלקים",
+    "category_en": "Fuels"
+  },
+  {
+    "name_he": "אמוניה ביתית",
+    "name_en": "Household ammonia",
+    "formula": "NH₃ (aq)",
+    "smiles": "N",
+    "cas": "1336-21-6",
+    "hazards": [
+      "corrosive",
+      "irritant"
+    ],
+    "category_he": "ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "נפט לבן (ווייט ספיריט)",
+    "name_en": "White spirit",
+    "formula": "mix",
+    "smiles": "CCCCCCCCC",
+    "cas": "8052-41-3",
+    "hazards": [
+      "flammable",
+      "irritant"
+    ],
+    "category_he": "ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "חומצה סולפמית",
+    "name_en": "Sulfamic acid",
+    "formula": "NH₃SO₃",
+    "smiles": "NS(=O)(=O)O",
+    "cas": "5329-14-6",
+    "hazards": [
+      "irritant",
+      "corrosive"
+    ],
+    "category_he": "ביתיים",
+    "category_en": "Household"
+  },
+  {
+    "name_he": "גז חרדל (דוגמה)",
+    "name_en": "Mustard gas (sulfur mustard)",
+    "formula": "C₄H₈Cl₂S",
+    "smiles": "ClCCSCCCl",
+    "cas": "505-60-2",
+    "hazards": [
+      "highly_toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כלורופיקרין",
+    "name_en": "Chloropicrin",
+    "formula": "CCl₃NO₂",
+    "smiles": "O=[N+]([O-])C(Cl)(Cl)Cl",
+    "cas": "76-06-2",
+    "hazards": [
+      "highly_toxic",
+      "irritant"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "עופרת טטראתיל",
+    "name_en": "Tetraethyl lead",
+    "formula": "C₈H₂₀Pb",
+    "smiles": "CC[Pb](CC)(CC)CC",
+    "cas": "78-00-2",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "כספית דו מתילית",
+    "name_en": "Dimethylmercury",
+    "formula": "C₂H₆Hg",
+    "smiles": "C[Hg]C",
+    "cas": "593-74-8",
+    "hazards": [
+      "fatal",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אוסמיום טטרוקסיד",
+    "name_en": "Osmium tetroxide",
+    "formula": "OsO₄",
+    "smiles": "O=[Os](=O)(=O)=O",
+    "cas": "20816-12-0",
+    "hazards": [
+      "highly_toxic",
+      "oxidizer",
+      "corrosive"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "בריליום",
+    "name_en": "Beryllium",
+    "formula": "Be",
+    "smiles": "[Be]",
+    "cas": "7440-41-7",
+    "hazards": [
+      "toxic",
+      "carcinogen"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ניטרוגליצרין",
+    "name_en": "Nitroglycerin",
+    "formula": "C₃H₅N₃O₉",
+    "smiles": "O=[N+]([O-])OCC(CO[N+](=O)[O-])O[N+](=O)[O-]",
+    "cas": "55-63-0",
+    "hazards": [
+      "explosive",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "TNT",
+    "name_en": "TNT (trinitrotoluene)",
+    "formula": "C₇H₅N₃O₆",
+    "smiles": "Cc1c([N+](=O)[O-])cc([N+](=O)[O-])cc1[N+](=O)[O-]",
+    "cas": "118-96-7",
+    "hazards": [
+      "explosive",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "חומצה פיקרית",
+    "name_en": "Picric acid",
+    "formula": "C₆H₃N₃O₇",
+    "smiles": "Oc1c([N+](=O)[O-])cc([N+](=O)[O-])cc1[N+](=O)[O-]",
+    "cas": "88-89-1",
+    "hazards": [
+      "explosive",
+      "toxic"
+    ],
+    "category_he": "מחמצנים",
+    "category_en": "Oxidizers"
+  },
+  {
+    "name_he": "כספית",
+    "name_en": "Mercury",
+    "formula": "Hg",
+    "smiles": "[Hg]",
+    "cas": "7439-97-6",
+    "hazards": [
+      "highly_toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "עופרת",
+    "name_en": "Lead",
+    "formula": "Pb",
+    "smiles": "[Pb]",
+    "cas": "7439-92-1",
+    "hazards": [
+      "toxic",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "ארסן",
+    "name_en": "Arsenic",
+    "formula": "As",
+    "smiles": "[As]",
+    "cas": "7440-38-2",
+    "hazards": [
+      "highly_toxic",
+      "carcinogen",
+      "env_hazard"
+    ],
+    "category_he": "תעשייתיים",
+    "category_en": "Industrial"
+  },
+  {
+    "name_he": "אבץ אבקה",
+    "name_en": "Zinc dust",
+    "formula": "Zn",
+    "smiles": "[Zn]",
+    "cas": "7440-66-6",
+    "hazards": [
+      "water_reactive",
+      "flammable",
+      "env_hazard"
+    ],
+    "category_he": "תגובתיים למים",
+    "category_en": "Water Reactive"
+  }
 
 
 
