@@ -371,20 +371,6 @@
     "category_en": "Fuels"
   },
   {
-    "name_he": "נפט (קרוסין)",
-    "name_en": "Kerosene",
-    "formula": "C₁₂H₂₆",
-    "smiles": "CCCCCCCCCCCC",
-    "cas": "8008-20-6",
-    "hazards": [
-      "flammable",
-      "toxic",
-      "irritant"
-    ],
-    "category_he": "דלקים",
-    "category_en": "Fuels"
-  },
-  {
     "name_he": "בוטאן (גז LPG)",
     "name_en": "Butane",
     "formula": "C₄H₁₀",
@@ -2256,7 +2242,7 @@
     "name_he": "אמוניה ביתית",
     "name_en": "Household ammonia",
     "formula": "NH₃ (aq)",
-    "smiles": "N",
+    "smiles": "[NH4+].[OH-]",
     "cas": "1336-21-6",
     "hazards": [
       "corrosive",
@@ -2463,9 +2449,4 @@
     "category_he": "תגובתיים למים",
     "category_en": "Water Reactive"
   }
-
-
-
-
-
-
+]
